@@ -2,6 +2,6 @@
     "semi":false,
     "singleQuote":true,
     "printwith":80,
-    "tabwidth":2,
+    "tabwidth":4,
     "trailingComma":"es5"
 }
