@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const LoginArea = styled.div`
     background-color:red;
-    margin:-21px -7px 0px -7px;
+   
     padding:15px;
     `
 const LoginDivInput = styled.div`
