@@ -1,7 +1,8 @@
+
 import {useNavigate} from 'react-router-dom';
 import {useEffect } from "react";
 
-function Home(){
+function ViewModelHome(){
 
     const navigate = useNavigate();
 
@@ -9,11 +10,11 @@ function Home(){
         navigate('/login');
     })
 
-    return(
-        <>
-        
-        </>
-    )
+    return{
+
+    }
+       
+    
 }
 
-export default Home;
+export default ViewModelHome;
