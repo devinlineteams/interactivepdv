@@ -1,0 +1,76 @@
+import { Theme } from "@types";
+
+export const lighTheme: Theme = {
+    appBackground:'#FFF',
+    appColor:'#000',
+    appDefaultStroke:'#E0E0E0',
+    appSkeletonFrom:'',
+    appSkeletonTo:'',
+    buttons:{
+        alert:'',
+        alertColor:'',
+        alertHover:'',
+        disabled:'',
+        disabledColor:'',
+        primary:'',
+        primaryColor:'',
+        primaryHover:'',
+    },
+    card:{
+        alert:'',
+        background:'',
+        border:'',
+        success:'',
+        warning:'',
+    },
+    textInput:{
+        active:'',
+        activeColor:'',
+        disabled:'',
+        disabledBorderColor:'',
+        disabledColor:'',
+        placeholderColor:'',
+    },
+    typographies:{
+        error:'',
+        subtitle:'',
+        success:'',
+    }
+}
+export const darkTheme: Theme = {
+    appBackground:'#FFF',
+    appColor:'#000',
+    appDefaultStroke:'#E0E0E0',
+    appSkeletonFrom:'',
+    appSkeletonTo:'',
+    buttons:{
+        alert:'',
+        alertColor:'',
+        alertHover:'',
+        disabled:'',
+        disabledColor:'',
+        primary:'',
+        primaryColor:'',
+        primaryHover:'',
+    },
+    card:{
+        alert:'',
+        background:'',
+        border:'',
+        success:'',
+        warning:'',
+    },
+    textInput:{
+        active:'',
+        activeColor:'',
+        disabled:'',
+        disabledBorderColor:'',
+        disabledColor:'',
+        placeholderColor:'',
+    },
+    typographies:{
+        error:'',
+        subtitle:'',
+        success:'',
+    }
+}
