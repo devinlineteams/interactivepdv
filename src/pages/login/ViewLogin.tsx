@@ -1,5 +1,6 @@
 import ViewModelLogin from "./ViewModelLogin";
 import styled from 'styled-components';
+import { FormComponet } from "@/components";
 
 const LoginArea = styled.div`
     padding:15px;
@@ -22,8 +23,17 @@ function ViewLogin({
     return(
         <>
             <LoginArea>
-                <LoginH1Title>login Mvvm</LoginH1Title>
+                <LoginH1Title>login</LoginH1Title>
             </LoginArea>
+            <FormComponet
+                inputs={[
+                    {type:'email', placeholder:'E-mail'},
+                    {type:'password', placeholder:'password'}
+                ]}
+                buttons={[
+                    {className:'primary', type:'submit', children:'Login'}
+                ]}
+            />
         </>
     )
        
