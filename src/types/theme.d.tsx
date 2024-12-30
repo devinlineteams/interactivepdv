@@ -1,6 +1,7 @@
 export interface Theme{
     appBackground:string
     appColor:string
+    appLogo:string
     appDefaultStroke:string
     appSkeletonFrom:string
     appSkeletonTo:string
@@ -24,6 +25,7 @@ export interface Theme{
     textInput:{
         active:string
         activeColor:string
+        borderColor:string
         disabled:string
         disabledBorderColor:string
         disabledColor:string
