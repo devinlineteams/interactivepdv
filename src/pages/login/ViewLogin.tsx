@@ -1,6 +1,7 @@
 import ViewModelLogin from "./ViewModelLogin";
 import styled from 'styled-components';
 import { FormComponet } from "@/components";
+import { useEffect } from "react";
 
 
 const LoginArea = styled.div`
@@ -69,6 +70,10 @@ function ViewLogin({
 
 }:ReturnType<typeof ViewModelLogin>){
 
+        useEffect(()=>{
+            console.log( "entrou no component viewLogin")
+        }),{}
+
     return(
         <>
             <LoginArea>  
@@ -77,8 +82,8 @@ function ViewLogin({
                         <LoginTitle>login</LoginTitle>
                         <FormComponet
                             inputs={[
-                                {type:'email', placeholder:'E-mail'},
-                                {type:'password', placeholder:'Password'}
+                                {type:'email', placeholder:'E-mail', name:'login', id:'login'},
+                                {type:'password', placeholder:'Password', name:'password', id:'password'}
                             ]}
                             buttons={[
                                 {className:'primary', type:'submit', children:'Login'}
