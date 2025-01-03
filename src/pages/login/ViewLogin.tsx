@@ -70,9 +70,15 @@ function ViewLogin({
 
 }:ReturnType<typeof ViewModelLogin>){
 
-        useEffect(()=>{
-            console.log( "entrou no component viewLogin")
-        }),{}
+    const inputs = [
+        {type:'email', placeholder:'email'},
+        {type:'password', placeholder:'Senha'},
+    ]
+
+    const handlerSumit = async (e:React.FormEvent) => {
+        e.preventDefault()
+    }
+
 
     return(
         <>
@@ -81,10 +87,10 @@ function ViewLogin({
                     <DivFormulario>
                         <LoginTitle>login</LoginTitle>
                         <FormComponet
-                            inputs={[
-                                {type:'email', placeholder:'E-mail', name:'login', id:'login'},
-                                {type:'password', placeholder:'Password', name:'password', id:'password'}
-                            ]}
+                            inputs={inputs.map((input, index)=>({
+                                type:input.type,
+                                placeholder:input.type,
+                            }))}
                             buttons={[
                                 {className:'primary', type:'submit', children:'Login'}
                             ]}
