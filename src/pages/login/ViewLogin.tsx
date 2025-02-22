@@ -1,8 +1,5 @@
 import ViewModelLogin from "./ViewModelLogin";
 import styled from 'styled-components';
-import { FormComponet } from "@/components";
-import { useEffect } from "react";
-
 
 const LoginArea = styled.div`
  @media only screen and (max-width: 3000px) {
@@ -167,19 +164,64 @@ const DivFormulario = styled.div`
         }
     `
 
+import { userFormVaklidation, usePost } from "@/hooks";
+import { MessegaPorps, LoginData, LoginPostData, DecodedJwt } from "@/types";
+import { FormComponet } from "@/components";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode} from "jwt-decode";
+import Cookies from 'js-cookie';
+import { jwtExpirationDateConvert } from "@/utils";
+
 function ViewLogin({
 
 }:ReturnType<typeof ViewModelLogin>){
+
+    const navigate = useNavigate()
 
     const inputs = [
         {type:'email', placeholder:'email'},
         {type:'password', placeholder:'Senha'},
     ]
+    const {data, loading, error, postData }= usePost<LoginData, LoginPostData>('login');
+    const {formValues, formValid, handleChange} = userFormVaklidation(inputs)
 
-    const handlerSumit = async (e:React.FormEvent) => {
-        e.preventDefault()
+    const handleMessage = ():MessegaPorps=>{
+
+        if(!error) return {msg:'',type:'success'}
+        switch(error){
+            case 401:
+                return{
+                    msg:'Email ou senha invalida',
+                    type: 'error',
+                }
+            default:
+                return{
+                    msg:" Não foi possível realizar a operação. contate o suporte",
+                    type: 'error'
+                }
+        }
     }
 
+    const handleSubmit = async (e: React.FormEvent) =>{
+        e.preventDefault();
+        console.log(formValues[1]);
+        await postData({
+            email:String(formValues[0]),
+            password:String(formValues[1])
+        })
+       
+    }
+    useEffect(()=>{
+        if(data?.jwt_token){
+            const decoded:DecodedJwt = jwtDecode(data?.jwt_token);
+            Cookies.set('Authorization',data?.jwt_token,{
+                expires:jwtExpirationDateConvert(decoded.exp),
+                secure:true
+            })
+            if(Cookies.get('Authorization')) navigate('/pdv')
+        }
+    },[data, navigate])
 
     return(
         <>
@@ -190,11 +232,21 @@ function ViewLogin({
                         <FormComponet
                             inputs={inputs.map((input, index)=>({
                                 type:input.type,
-                                placeholder:input.type,
+                                placeholder:input.placeholder,
+                                value:formValues[index] || '',
+                                onChange:(e: ChangeEvent<HTMLInputElement>) => handleChange(index,(e.target as HTMLInputElement).value)
                             }))}
                             buttons={[
-                                {className:'primary', type:'submit', children:'Login'}
+                                {
+                                    className:'primary',
+                                    disabled: !formValid || loading,
+                                    type:'submit',
+                                    onClick: handleSubmit,
+                                    children:loading? 'aguarde...':'Login',
+                                    
+                                }
                             ]}
+                            message={handleMessage()}
                         />
                         <span> Esqueci a senha:</span>
                         <h3>Quero me Cadastrar</h3>
@@ -211,3 +263,7 @@ function ViewLogin({
 }
 
 export default ViewLogin;
+
+// login dnc  jnojair2010@gmail.com
+
+// password:  JnoJair201015130282

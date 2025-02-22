@@ -10,30 +10,36 @@ export const usePost = <T, P> (endpoint:string) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<number | null>(null);
 
-    const postData = async (postData: P, config?:AxiosRequestConfig) => {
+    const postData = async (postData: P, config?: AxiosRequestConfig) => {
 
         setData(null);
         setLoading(true);
         setError(null)
 
         try{
+        
             const response = await axiosInstance({
                 url:endpoint,
-                method:'Post',
+                method:'POST',
                 data:postData,
                 headers:{
-                    'Content-Type':'application/json',
+                    "Access-Control-Allow-Credentials": true,
+                    "Content-type":"application/json",
                     ...config?.headers
                 },
                 ... config
-            })
+
+            } )
+       
             setData(response.data)
         }catch(e:any){
-            setError(e.response.data ?? 500)
+    
+            setError(e.response.status ?? 500)
         }finally{
             setLoading(false)
         }
         
     }
-
+    
+    return {data, loading, error, postData}
 }
