@@ -18,6 +18,35 @@
 
            & .divSup{
             background-color: #262525;
+             display:grid;
+             grid-template-columns: 20% 60% 20%;
+
+             & #nameEmpresa{
+                height: 50%;
+                float: auto;
+                text-align: center;
+                margin-top: 5%;
+             }
+             & #seach{
+
+                & input{
+                    width: 80%;
+                    height: 40px;
+                    float: auto;
+                    margin-top:1.5%;
+                    border: solid 1px white;
+                    border-radius: 10px;
+                    padding-left: 30px;
+                    font-size: 20px;
+                    background-color:#7C7C7C;
+                }
+             }
+             & #nameLogin{
+                height: 50%;
+                float: auto;
+                text-align: center;
+                margin-top: 5%;
+             }
            }
            & .divInf{
             background-color: white;
