@@ -164,7 +164,7 @@ const DivFormulario = styled.div`
         }
     `
 
-import { userFormVaklidation, usePost } from "@/hooks";
+import { userFormValidation, usePost } from "@/hooks";
 import { MessegaPorps, LoginData, LoginPostData, DecodedJwt } from "@/types";
 import { FormComponet } from "@/components";
 import { useEffect } from "react";
@@ -184,7 +184,8 @@ function ViewLogin({
         {type:'password', placeholder:'Senha'},
     ]
     const {data, loading, error, postData }= usePost<LoginData, LoginPostData>('login');
-    const {formValues, formValid, handleChange} = userFormVaklidation(inputs)
+
+    const {formValues, formValid, handleChange} = userFormValidation(inputs);
 
     const handleMessage = ():MessegaPorps=>{
 
