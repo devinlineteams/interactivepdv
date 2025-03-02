@@ -1,20 +1,50 @@
+import { http } from "./daohttp/axiosPost"
+import { Producto } from "@/model/Producto"
+
 class GetAllProdutosDao{
     
 
-    Produtos =[
-        {id:"1", name:"Linp Glos 1 ", category:"Makup", marca:"Lady Beauty", line:"Clear", tom:"Frult", price:15.50, codBarra:"7898968202924", validity:"2029", quantidadeEstoque:10},
-        {id:"2", name:"Gloss Linp 2", category:"Makup", marca:"Lady Beauty", line:"Clear", tom:"Frult", price:11.25, codBarra:"7898968202863", validity:"2029", quantidadeEstoque:10},
-        {id:"3", name:"Brilho labial 3 ", category:"Makup", marca:"Lady Beauty", line:"Clear", tom:"Frult", price:10.00, codBarra:"7898968202894", validity:"2029", quantidadeEstoque:10},
-        {id:"4", name:"Base", category:"Makup", marca:"Ruby Rose", line:"Softmatte", tom:"1", price:19.50, codBarra:"123456", validity:"2026", quantidadeEstoque:5},
-        {id:"5", name:"Base", category:"Makup", marca:"Ruby Rose", line:"Softmatte", tom:"2", price:19.50, codBarra:"7894567", validity:"2026", quantidadeEstoque:16},
-        {id:"6", name:"Base", category:"Makup", marca:"Ruby Rose", line:"Softmatte", tom:"3", price:19.50, codBarra:"789456776", validity:"2026", quantidadeEstoque:3},
-        {id:"7", name:"Base", category:"Makup", marca:"Belle Angel", line:"Softmatte", tom:"4", price:18.00, codBarra:"78945754", validity:"2026", quantidadeEstoque:10},
-        {id:"8", name:"Base", category:"Makup", marca:"Fenza", line:"fenzVerde", tom:"4", price:10.00, codBarra:"78945612344", validity:"2026", quantidadeEstoque:9},
-        {id:"9", name:"Base", category:"Makup", marca:"Vivai", line:"vivBabe", tom:"4", price:10.00, codBarra:"7894565533", validity:"2026", quantidadeEstoque:7}
-    ]
+   Produtos:Producto[]=[]
 
-   getAllProdutos(){
-        return  this.Produtos;
+    async getAllProductoServdor(){
+        console.log("entrou no getAllProduto")
+       try{
+            const axiosConfig = {headers:{
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers": "Authorization", 
+                    "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0MDc4NjQ3MSwiZXhwIjoxNzQwNzg2NzcxfQ.vIyG4zYm8kAoF5MSHydSiu6aFCHE5EV5sn_gNnBknkI"
+                    }}
+            
+                    console.log("entrou no click")
+                /* getAllProducto("/getAllproducto")*/
+              await  http.post("/getAllproducto",{"":""}, axiosConfig).then((response)=>{this.Produtos = response.data})
+             
+            }catch(erro)   {
+                console.log(" entrou no erro get all produto")
+            }finally{
+                console.log(" entrou no finaly do get all produto")
+            }
+
+            console.log(this.Produtos);
     }
+
+    getAllProdutos(){
+       
+            return  this.Produtos;
+    }
+
+    getProducto(codigoBarra:string):Producto{
+
+        let newProduto!:Producto;
+
+        this.Produtos.filter(produto=>{
+            newProduto = produto;
+        })
+
+        return newProduto;
+    }
+
 }
 export default GetAllProdutosDao;

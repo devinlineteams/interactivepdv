@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
  import axios from "axios";
 import SerachComponent from '@/components/serchComponent';
 import { http } from '@/dao/daohttp/axiosPost';
+import GetAllProdutosDao from '@/dao/GetAllProdutosDao';
 
 
 function Pdv(){
@@ -15,28 +16,28 @@ function Pdv(){
 
     const handleChangeSearch = async (index:number,value:string)=>{
         console.log(` o value é ${value}`)
+        GetAllProdutosDao.prototype.getProducto(value);
 
     }
     const handleclick =(e: React.FormEvent)=>{
         e.preventDefault();
+       
 
-        const axiosConfig = {headers:{
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Authorization", 
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
-        "Content-Type": "application/json;charset=UTF-8",
-        "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0MDc4NjQ3MSwiZXhwIjoxNzQwNzg2NzcxfQ.vIyG4zYm8kAoF5MSHydSiu6aFCHE5EV5sn_gNnBknkI"
-        }}
-
-        console.log("entrou no click")
-       /* getAllProducto("/getAllproducto")*/
-       http.post("/getAllproducto",{"":""}, axiosConfig).then((response)=>{ response.data})
-
-
+    }
+    const getAllProducto = ()=>{
+    let i = 0;
+    console.log(` o valor de i é ( ${i} )`)
+        if(i<1){
+            console.log("entrou no if do i")
+            GetAllProdutosDao.prototype.getAllProductoServdor();
+            i = 1;
+        }
+      i =1;
     }
 
     useEffect(()=>{
-
+        console.log("Entrou no useEffect");
+        getAllProducto();
     }),[]
 
     
