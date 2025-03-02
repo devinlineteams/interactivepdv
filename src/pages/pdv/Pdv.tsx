@@ -2,7 +2,6 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
  import './pdvcss.css'
  import axios from "axios";
-import { getAllProducto } from '@/dao/daohttp/getAllProdutoAxios';
 import SerachComponent from '@/components/serchComponent';
 import { http } from '@/dao/daohttp/axiosPost';
 
