@@ -5,6 +5,7 @@ export const userFormValidation = (inputs:InputProps[])=> {
     const [ formValues, setFormValues] = useState(inputs.map((input) => input.value || ''))
     const [formValid, setFormValid] = useState(false)
 
+
     useEffect(()=>{
         const allFieldsValid = inputs.every((input, index) =>{
             if(input.type === 'email'){
@@ -21,8 +22,10 @@ export const userFormValidation = (inputs:InputProps[])=> {
 
     const handleChange = (index:number, value:string) =>{
             setFormValues((prevValues) => {
+              
                 const newValue = [...prevValues]
-                    newValue[index] =value;
+                    newValue[index] = value;
+                
                     return newValue;
             })
     }
