@@ -15,8 +15,8 @@ function Pdv(){
     const [search, setSearch] = useState(false)
 
     const handleChangeSearch = async (index:number,value:string)=>{
-        console.log(` o value é ${value}`)
-        GetAllProdutosDao.prototype.getProducto(value);
+
+       console.log(GetAllProdutosDao.prototype.getProducto(value));
 
     }
     const handleclick =(e: React.FormEvent)=>{
