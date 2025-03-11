@@ -1,24 +1,22 @@
-import Produto from "../model/Produto";
+import { Producto } from "@/model/Producto";
+
 
 class Carrinho{
 
     static valueTotal:number = 0;
     static totalItem:number =0;
-    static productAdd = new Produto('','','','','','',0,'','',0,0);
+    static productAdd:Producto;
    
   
 
-    static cart:Produto[] = [
+    static cart:Producto[] = [
 
     ];
 
 
-    addProductToTheCart(product:Produto){
-    //git psuh this.calcValorTotal(product.getVTotal());
-    // const products = Carrinho.cart;
-    //  console.log(products);
-
-     Carrinho.cart.push(product);
+    addProductToTheCart(producto:Producto){
+     
+     Carrinho.cart.push(producto);
 
     }
     deleteProduct(id:number){
@@ -37,7 +35,6 @@ class Carrinho{
       
         }
 
-        console.log(products);
     }
     static calcValorTotal(vt:number){
       Carrinho.valueTotal+=vt;
@@ -59,7 +56,7 @@ class Carrinho{
 
         return newValue;
     }
-          discountProdutos(value:number){
+          discountPorductos(value:number){
 
         //this.calcularDesconto(value);
     }

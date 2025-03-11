@@ -1,14 +1,19 @@
 export interface Producto{
+    index:number,
     batch:string,
     codBarra:string,
     dateRegistre:string,
-    dPorducto:number,
+    idProducto:number,
     idSupplier:number,
     line:string,
     mark:string,
     nameProduto:string,
     notafiscal:string,
-    pricePurchase:DoubleRange
-    priceSales:DoubleRange
-    validity:string
+    pricePurchase:Number
+    priceSales:Number
+    validity:string,
+    quantidadeEstoque:number;
+    quant:Number;
+    vTotal:Number;
+    funcaoDeleteItem:Function
 }

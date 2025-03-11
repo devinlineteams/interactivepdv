@@ -172,6 +172,7 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode} from "jwt-decode";
 import Cookies from 'js-cookie';
 import { jwtExpirationDateConvert } from "@/utils";
+import GetAllProdutosDao from "@/dao/GetAllProdutosDao";
 
 function ViewLogin({
 
@@ -220,7 +221,12 @@ function ViewLogin({
                 expires:jwtExpirationDateConvert(decoded.exp),
                 secure:true
             })
-            if(Cookies.get('Authorization')) navigate('/pdv')
+            if(Cookies.get('Authorization')){
+                const token:string = String(Cookies.get('Authorization'));
+                GetAllProdutosDao.prototype.getAllProductoServdor(token)
+
+                navigate('/pdv')
+            } 
         }
     },[data, navigate])
 

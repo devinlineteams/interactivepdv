@@ -6,18 +6,18 @@ class GetAllProdutosDao{
 
    Produtos:Producto[]=[]
 
-    async getAllProductoServdor(){
-        console.log("entrou no getAllProduto")
+    async getAllProductoServdor(token:string){
+
        try{
             const axiosConfig = {headers:{
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Headers": "Authorization", 
                     "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
                     "Content-Type": "application/json;charset=UTF-8",
-                    "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0MDc4NjQ3MSwiZXhwIjoxNzQwNzg2NzcxfQ.vIyG4zYm8kAoF5MSHydSiu6aFCHE5EV5sn_gNnBknkI"
+                    "authorization":token
                     }}
             
-                    console.log("entrou no click")
+                    console.log("entrou no getAll produto servidor")
                 /* getAllProducto("/getAllproducto")*/
               await  http.post("/getAllproducto",{"":""}, axiosConfig).then((response)=>{this.Produtos = response.data})
              
@@ -26,8 +26,8 @@ class GetAllProdutosDao{
             }finally{
                 console.log(" entrou no finaly do get all produto")
             }
-
             console.log(this.Produtos);
+            return this.Produtos;
     }
 
     getAllProdutos(){
