@@ -13,28 +13,13 @@ class Carrinho{
 
     ];
 
-
     addProductToTheCart(producto:Producto){
      
      Carrinho.cart.push(producto);
 
     }
-    deleteProduct(id:number){
-      const idString = id;
-
-      const products = Carrinho.cart;
-      
-      console.log(" o id recebido é: "+id);
-
-   
-        for(let i =0; i<Carrinho.cart.length;i++){
-
-          if(Carrinho.cart[i].getId()==idString.toString()){
-             Carrinho.cart.splice(i,1);
-          }
-      
-        }
-
+    deleteProduct(index:number){
+      Carrinho.cart.splice(index,1)
     }
     static calcValorTotal(vt:number){
       Carrinho.valueTotal+=vt;

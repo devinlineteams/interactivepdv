@@ -113,7 +113,7 @@
                                 padding-left: 15px;
                                 text-transform: uppercase;
                                 display: grid;
-                                grid-template-columns: 80px 100px 700px 150px 150px 150px;
+                                grid-template-columns: 100px 100px 600px 150px 150px;
                             }
                         }
                     }
@@ -125,11 +125,22 @@
                 & ol{
                     height: 100%;
                     overflow: scroll;
-                    margin-left: 5px;
+                    margin-left: 0px;
                     padding-left: 50px;
+                    background-color: rgb(195, 230, 218);
                     margin-top: -1px;
                     & li{
                         font-size: 25px;
+
+                        & button{
+                            width: 40px;
+                            height: 35px;
+                            float: left;
+                            margin-top:-2px;
+                            border: none;
+                            background-color: #316BB8;
+                            cursor: pointer;
+                        }
                     }
                 }
             }

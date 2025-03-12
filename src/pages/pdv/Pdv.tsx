@@ -99,11 +99,9 @@ export class Pdv extends Component{
             this.getAllProductosDaoServidor();
             console.log("entrou no onclick")
         }
-        deleteItem(id:number){
-           // this.cart.deleteProduct(id);
-           // this.getCart();
-           console.log(`o id do produto é ${id}`)
-
+        deleteItem = (index:number)=>{
+            this.cart.deleteProduct(index);
+            this.getCart();
         }
 
         getAllProductosDaoLocal = ()=>{
@@ -164,7 +162,6 @@ export class Pdv extends Component{
                                                             <label>Ordem</label>
                                                             <label> quant</label>
                                                             <label>Descrição</label>
-                                                            <label> Desconto%</label>
                                                             <label>V. Unitário</label>
                                                             <label>V. Total</label>
                                                             <label id="delete" className="btn-delete-li mg-btn-li"></label>
