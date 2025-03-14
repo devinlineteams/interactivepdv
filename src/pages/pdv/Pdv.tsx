@@ -86,6 +86,7 @@ export class Pdv extends Component{
             let totItens = totalItem + itens;
 
             this.setState({totalItem:totItens})
+            this.setState({totalItem:totItens})
         }
 
         clienElementoInputSearch(){
@@ -177,8 +178,8 @@ export class Pdv extends Component{
                                                 <ul id="md-ul-li">
                                                       <li id="md-li">
                                                             <label>Ordem</label>
-                                                            <label> quant</label>
                                                             <label>Descrição</label>
+                                                            <label> quant</label>
                                                             <label>V. Unitário</label>
                                                             <label>V. Total</label>
                                                             <label id="delete" className="btn-delete-li mg-btn-li"></label>

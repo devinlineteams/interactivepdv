@@ -8,7 +8,7 @@
     padding-top: 4px;
     padding-left: 5px;
     border: 1px solid black;
-    grid-template-columns: 100px 100px 600px 150px 130px 100px;
+    grid-template-columns: 100px 600px 100px 150px 130px 100px;
     
     & label{
         color:black;

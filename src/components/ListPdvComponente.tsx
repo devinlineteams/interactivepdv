@@ -19,8 +19,8 @@ import { covertDoubleEmReal } from '@/utils';
     
         <li id={`id${String(index)}`} className="li-list-product">  
                 <label>{index+1}</label>
-                <label> {covertDoubleEmReal(quant)}</label>
                 <label>{nameProduto}</label>
+                <label> {covertDoubleEmReal(quant)}</label>
                 <label>{covertDoubleEmReal( priceSales)}</label>
                 <label> {covertDoubleEmReal(vTotal)} </label>
                 <button id="delete" className='btn-delete-li mg-btn-li'
