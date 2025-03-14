@@ -22,7 +22,7 @@ import { covertDoubleEmReal } from '@/utils';
                 <label> {covertDoubleEmReal(quant)}</label>
                 <label>{nameProduto}</label>
                 <label>{covertDoubleEmReal( priceSales)}</label>
-                <label> { covertDoubleEmReal(vTotal)} </label>
+                <label> {covertDoubleEmReal(vTotal)} </label>
                 <button id="delete" className='btn-delete-li mg-btn-li'
                 onClick={()=>{
                             const id = handClickDeletProduct(index);

@@ -59,7 +59,8 @@ export class Pdv extends Component{
                         vTotal : ( Number (quantInput) * Number(Pdv.listPorducto[i].priceSales)),
                         funcaoDeleteItem : Pdv.listPorducto[i].funcaoDeleteItem
                     };
-            
+                    this.plusValorTotal(Number(prod.vTotal))
+                    this.quantidadeDeItems(Number(prod.quant))
                     this.addProductoCarrinho(prod)
                     this.clienElementoInputSearch();
                
@@ -71,6 +72,22 @@ export class Pdv extends Component{
             }
 
         }
+        plusValorTotal(v:number){
+
+            let {valorTotal} = this.state
+
+            let vTo = valorTotal + v;
+
+            this.setState({valorTotal:vTo})
+
+        }
+        quantidadeDeItems(itens:number){
+            let {totalItem} = this.state
+            let totItens = totalItem + itens;
+
+            this.setState({totalItem:totItens})
+        }
+
         clienElementoInputSearch(){
             this.getCart();
             setTimeout( ()=>{
@@ -128,7 +145,7 @@ export class Pdv extends Component{
 
     render(){
 
-        const {cart, desableButton} = this.state;
+        const {cart, desableButton, valorTotal, totalItem} = this.state;
 
         return(
             <div id='pdv' className='divPdv'>
@@ -196,10 +213,27 @@ export class Pdv extends Component{
                                    
                                  </div>
                                  <div className='divsaleTot'>
-     
+                                    
+                                    <div id="desItemTot">
+                                        <div id="qidqiv">
+                                            <h3 id="qid">Quantidade:</h3>
+                                            <h3 id="qiv">{totalItem}</h3>
+                                        </div>
+                                        <div id="of">
+                                            <input id="desconto" placeholder='desconto' />
+                                        </div>
+                                       
+                                       
+                                    </div>
+                                    <div id="vTotal">
+                                        <h2 id="infTotal">Valor Total:</h2>
+                                         <h1 id="vTot">{covertDoubleEmReal(valorTotal)}</h1>
+                                    </div>
+                                        
                                  </div>
                              </div>
                              <div className='divInfSales'>
+                                         
      
                              </div>
                          </div>
