@@ -57,6 +57,7 @@ export class Pdv extends Component{
                         quantidadeEstoque : Pdv.listPorducto[i].quantidadeEstoque,
                         validity : Pdv.listPorducto[i].validity,
                         vTotal : ( Number (quantInput) * Number(Pdv.listPorducto[i].priceSales)),
+                        discount:0,
                         funcaoDeleteItem : Pdv.listPorducto[i].funcaoDeleteItem
                     };
                     this.plusValorTotal(Number(prod.vTotal))
@@ -119,7 +120,30 @@ export class Pdv extends Component{
         }
         deleteItem = (index:number)=>{
             this.cart.deleteProduct(index);
-            this.getCart();
+            let mount:number  = 0;
+            let totItens = this.cart.getCartForLi()
+            totItens.map((item, index)=>{
+                mount+=Number(item.vTotal);
+            })
+            this.setState({valorTotal:mount})
+        }
+        descontoItem =(index:number, desconto:string)=>{
+            this.cart.setDescontoItemCart(index, Number(desconto))
+            this.vTotalWithDiscount(Number(desconto))
+            let mount:number  = 0;
+            let totItens = this.cart.getCartForLi()
+            totItens.map((item, index)=>{
+                mount+=Number(item.vTotal);
+            })
+            this.setState({valorTotal:mount})
+    
+        }
+        vTotalWithDiscount(discount:number){
+            let {valorTotal} = this.state
+
+            let vTo = valorTotal - discount;
+
+            this.setState({valorTotal:vTo})
         }
 
         getAllProductosDaoLocal = ()=>{
@@ -132,6 +156,8 @@ export class Pdv extends Component{
             this.getAllProductosDaoLocal();
 
         }
+
+
 
         componentDidMount() {
             this.getAllProductosDaoLocal();
@@ -207,7 +233,10 @@ export class Pdv extends Component{
                                                 priceSales={item.priceSales} 
                                                 validity={''} 
                                                 vTotal = {item.vTotal}
-                                                funcaoDeleteItem={this.deleteItem} />
+                                                discount={0}
+                                                funcaoDeleteItem={this.deleteItem}
+                                                functionDesconto={this.descontoItem}
+                                                 />
                                             ))
                                          }
                                      </ol>

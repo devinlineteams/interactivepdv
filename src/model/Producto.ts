@@ -15,5 +15,7 @@ export interface Producto{
     quantidadeEstoque:number;
     quant:Number;
     vTotal:Number;
+    discount:Number,
     funcaoDeleteItem:Function
+    functionDesconto:Function
 }

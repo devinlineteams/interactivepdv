@@ -5,19 +5,25 @@ import './styleListPdvComponent.css';
 import { covertDoubleEmReal } from '@/utils';
 
 
+
+
  function ListPdvComponente(prosp:Producto){
 
-    const {index, batch, codBarra, quant,dateRegistre, idProducto, idSupplier, line, mark, nameProduto, notafiscal, pricePurchase, priceSales, validity, funcaoDeleteItem, vTotal} = prosp
+    const {index, batch, codBarra, quant,dateRegistre, idProducto, idSupplier, line, mark, nameProduto, notafiscal, pricePurchase, priceSales, validity, funcaoDeleteItem, vTotal, functionDesconto} = prosp
 
     const handClickDeletProduct = (id:number)=>{
-
         return id;
+    }
+
+    const handleChangeDesconto = (index:number, desconto:string)=>{
+
+        return index
     }
    
 
     return(
     
-        <li id={`id${String(index)}`} className="li-list-product">  
+        <li key={index} id={`id${String(index)}`} className="li-list-product">  
                 <label>{index+1}</label>
                 <label>{nameProduto}</label>
                 <label> {covertDoubleEmReal(quant)}</label>
@@ -29,7 +35,14 @@ import { covertDoubleEmReal } from '@/utils';
                             funcaoDeleteItem(id)
                         }
                     }
-                ></button>  
+                ></button> 
+                <input id="descontoProduto"
+                    onChange={(e)=>{
+                        const v = e.target.value;
+                        const id = handleChangeDesconto(index, v);
+                        functionDesconto(id, v)
+                    }}
+                /> 
         </li>   
             
     )
