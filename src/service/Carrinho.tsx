@@ -45,13 +45,19 @@ class Carrinho{
 
            Carrinho.cart.splice(index, 1, prod);
 
-          // console.log(prod)
+
     }
     static calcValorTotal(vt:number){
       Carrinho.valueTotal+=vt;
     }
     getTotalValue(){
-      return Carrinho.valueTotal;
+      let mount:number  = 0;
+      let totalOfItens = this.getCartForLi();
+          totalOfItens.map((item, index)=>{
+            mount+=Number(item.vTotal);
+        })
+
+      return mount;
     }
     getTotalItem(){
       return Carrinho.cart.length;
@@ -62,17 +68,6 @@ class Carrinho{
     }
 
 
-    /*
-    calcularDesconto(v:number){
-
-        return newValue;
-    }
-          discountPorductos(value:number){
-
-        //this.calcularDesconto(value);
-    }
-        
-    */
 
 }
 export default Carrinho;

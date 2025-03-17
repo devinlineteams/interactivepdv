@@ -101,7 +101,7 @@ export class Pdv extends Component{
             await  this.setState({cart:newCart})
             console.log("Início get cart carrinho");
              const {cart} = this.state;
-          /*  console.log(cart)*/
+
 
         }
         addProductoCarrinho(producto:Producto){
@@ -110,40 +110,28 @@ export class Pdv extends Component{
 
         handleBlue = ()=>{
           this.setState({desableButton:false})
-            console.log("entrou no desfocu do input search")
+
         }
 
         handleclick =(e: React.FormEvent)=>{
             e.preventDefault();
             this.getAllProductosDaoServidor();
-            console.log("entrou no onclick")
+
         }
         deleteItem = (index:number)=>{
             this.cart.deleteProduct(index);
-            let mount:number  = 0;
-            let totItens = this.cart.getCartForLi()
-            totItens.map((item, index)=>{
-                mount+=Number(item.vTotal);
-            })
-            this.setState({valorTotal:mount})
+            this.vTotalWithDiscount();
+
         }
         descontoItem =(index:number, desconto:string)=>{
-            this.cart.setDescontoItemCart(index, Number(desconto))
-            this.vTotalWithDiscount(Number(desconto))
-            let mount:number  = 0;
-            let totItens = this.cart.getCartForLi()
-            totItens.map((item, index)=>{
-                mount+=Number(item.vTotal);
-            })
-            this.setState({valorTotal:mount})
+            this.cart.setDescontoItemCart(index, Number(desconto));
+            this.vTotalWithDiscount();
     
         }
-        vTotalWithDiscount(discount:number){
-            let {valorTotal} = this.state
+        vTotalWithDiscount(){
 
-            let vTo = valorTotal - discount;
+            this.setState({valorTotal:this.cart.getTotalValue()})
 
-            this.setState({valorTotal:vTo})
         }
 
         getAllProductosDaoLocal = ()=>{
@@ -161,11 +149,11 @@ export class Pdv extends Component{
 
         componentDidMount() {
             this.getAllProductosDaoLocal();
-            console.log(" entrou no didMount")
+
         }
 
         componentDidUpdate() {
-            console.log(" entrou no didiUpdate")
+
         }
     
 
@@ -242,24 +230,25 @@ export class Pdv extends Component{
                                      </ol>
                                    
                                  </div>
-                                 <div className='divsaleTot'>
-                                    
-                                    <div id="desItemTot">
-                                        <div id="qidqiv">
-                                            <h3 id="qid">Quantidade:</h3>
-                                            <h3 id="qiv">{totalItem}</h3>
-                                        </div>
-                                        <div id="of">
-                                            <input id="desconto" placeholder='desconto' />
-                                        </div>
-                                       
-                                       
+                                 <div className='divSaleTot'>
+                                    <div id="tot">
+                                         <h1>Total:</h1> <h1 id="vTotal">{covertDoubleEmReal(valorTotal)}</h1>
                                     </div>
-                                    <div id="vTotal">
-                                        <h2 id="infTotal">Valor Total:</h2>
-                                         <h1 id="vTot">{covertDoubleEmReal(valorTotal)}</h1>
+                                    <div id="methodPayment">
+                                         <div id="payment">
+                                            <h1>Forma de Pagamento:</h1>
+                                            <select>
+                                                <option value="Dinheiro">Dinheiro</option>
+                                                <option value="Cartao">Cartão</option>
+                                                <option value="Debito">Debito</option>
+                                                <option value="Pix">Pix</option>
+                                                <option value="cartao Parcelado">Parcelado</option>
+                                            </select>
+                                         </div>
+                                         <div id="finish">
+                                            <button>Finalizar</button>
+                                         </div>
                                     </div>
-                                        
                                  </div>
                              </div>
                              <div className='divInfSales'>

@@ -6,11 +6,15 @@ import { replace } from "react-router-dom";
  *  * @param valorDouble- valor vindo do banco de dado
  * @return retorna preço em real
  */
-export function covertDoubleEmReal(valorDouble:Number):string{
+export function covertDoubleEmReal(valorDouble:number):string{
 
-    const moeda = valorDouble.toLocaleString()
+    var intl = new Intl.NumberFormat("pt-BR", { 
+        style: "currency", 
+        currency: "BRL"
+      });
 
-    let novoValor = String(valorDouble).replace(".",",")
+    var valor = valorDouble;
+    var moeda = intl.format((valor / 1));
 
     return moeda;
 }

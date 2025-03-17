@@ -15,9 +15,25 @@ import { covertDoubleEmReal } from '@/utils';
         return id;
     }
 
-    const handleChangeDesconto = (index:number, desconto:string)=>{
+    const handleChangeDesconto = (index:number)=>{
 
         return index
+    }
+    const handleChangeTreatDiscount=(desconto:string)=>{
+
+      let string = desconto;
+      let array = string.split('');
+      let filtro = array.filter((valor)=>{
+       return valor.includes(",")
+      })
+      let vDiscount;
+      if(filtro.length>0){
+      vDiscount = desconto.replace(",",".")
+      }else{
+        vDiscount = desconto
+      }
+
+        return vDiscount;
     }
    
 
@@ -26,7 +42,7 @@ import { covertDoubleEmReal } from '@/utils';
         <li key={index} id={`id${String(index)}`} className="li-list-product">  
                 <label>{index+1}</label>
                 <label>{nameProduto}</label>
-                <label> {covertDoubleEmReal(quant)}</label>
+                <label> {`${quant}`} </label>
                 <label>{covertDoubleEmReal( priceSales)}</label>
                 <label> {covertDoubleEmReal(vTotal)} </label>
                 <button id="delete" className='btn-delete-li mg-btn-li'
@@ -39,8 +55,9 @@ import { covertDoubleEmReal } from '@/utils';
                 <input id="descontoProduto"
                     onChange={(e)=>{
                         const v = e.target.value;
-                        const id = handleChangeDesconto(index, v);
-                        functionDesconto(id, v)
+                        const discount = handleChangeTreatDiscount(v)
+                        const id = handleChangeDesconto(index);
+                        functionDesconto(id, discount)
                     }}
                 /> 
         </li>   
