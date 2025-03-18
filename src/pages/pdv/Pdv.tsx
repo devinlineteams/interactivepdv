@@ -242,6 +242,7 @@ export class Pdv extends Component{
                                                 <option value="Cartao">Cartão</option>
                                                 <option value="Debito">Debito</option>
                                                 <option value="Pix">Pix</option>
+                                                <option value="Credito">Credito</option>
                                                 <option value="cartao Parcelado">Parcelado</option>
                                             </select>
                                          </div>
@@ -252,7 +253,7 @@ export class Pdv extends Component{
                                  </div>
                              </div>
                              <div className='divInfSales'>
-                                         
+                                         <button>Cadastrar Produto</button>
      
                              </div>
                          </div>

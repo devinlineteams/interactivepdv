@@ -29,22 +29,23 @@
              }
              & #searchdiv{
                 display: grid;
-                grid-template-columns: 50px 60% 150px;
+                grid-template-columns: 75px 55% 200px;
 
                 & #quantInput{
+                    width: 70px;
                     height: 50px;
                     float: auto;
                     margin-top:10px;
                     border: solid 1px white;
                     border-radius: 10px;
-                    padding-left: 15px;
+                    justify-content: center;
+                    text-align: center;
                     font-size: 25px;
                     background-color:#7C7C7C;
                     color:#F5F5F5
                 }
 
                 & #search{
-
                     height: 50px;
                     float: auto;
                     margin-top:10px;
@@ -57,10 +58,9 @@
                     color:#F5F5F5
                 }
                 & #btnSearch{
-                    width: 150px;
                     height: 50px;
-                    background-color: #316BB8;
-                    margin-top: 10px;
+                    background-color: #0d2663;
+                    margin-top: 12px;
                     margin-left: 5px;
                     margin-right: 10px;
                     border: solid 1px white;
