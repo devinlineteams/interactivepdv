@@ -1,7 +1,6 @@
 import { ChangeEvent, Component, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
- import './pdvcss.css'
- import axios from "axios";
+import axios from "axios";
 import SerachComponent from '@/components/serchComponent';
 import { http } from '@/dao/daohttp/axiosPost';
 import GetAllProdutosDao from '@/dao/GetAllProdutosDao';
@@ -11,8 +10,13 @@ import ListPdvComponente from '../../components/ListPdvComponente';
 
 import { Producto } from '@/model/Producto';
 import { covertDoubleEmReal } from '@/utils';
+import { Link } from "react-router";
+
+import './pdvcss.css'
 
 export class Pdv extends Component{
+
+
      inputs = [
         {type:'input', placeholder:'search'},
     ]
@@ -73,6 +77,7 @@ export class Pdv extends Component{
             }
 
         }
+       
         plusValorTotal(v:number){
 
             let {valorTotal} = this.state
@@ -145,6 +150,10 @@ export class Pdv extends Component{
 
         }
 
+        cadastrarProduto(){
+         // this.props.navigate("/login")
+        }
+
 
 
         componentDidMount() {
@@ -153,12 +162,13 @@ export class Pdv extends Component{
         }
 
         componentDidUpdate() {
-
+            
         }
     
 
 
     render(){
+
 
         const {cart, desableButton, valorTotal, totalItem} = this.state;
 
@@ -252,8 +262,14 @@ export class Pdv extends Component{
                                     </div>
                                  </div>
                              </div>
-                             <div className='divInfSales'>
-                                         <button>Cadastrar Produto</button>
+                             <div className='divMenuAtendente'>
+                                        <Link to="/cadastrarproduto"><button className='funAtendente' >Cadastrar Produto</button> </Link> 
+                                            <button className='funAtendente'>Cadastrar Categoria</button>
+                                            <button className='funAtendente'>Cadastrar Cliente</button>
+                                            <button className='funAtendente'>Consultar Produto</button>
+                                            <button className='funAtendente'>Consultar Estoque</button>
+                                            <button className='funAtendente'>Vendas</button>
+
      
                              </div>
                          </div>

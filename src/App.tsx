@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 import {Login, Pdv, Home} from "./pages";
+import CadastrarProduto from "./pages/cadastrar-produto/CadastrarProduto";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Home />}></Route>
       <Route path="/pdv" element={<Pdv />}></Route>
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/cadastrarproduto" element={<CadastrarProduto />}></Route>
       </Routes>  
     </Router>
   )

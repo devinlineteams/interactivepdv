@@ -230,8 +230,26 @@
                     }
                 }
             }
-            & .divInfSales{
+            & .divMenuAtendente{
                 background-color: #F5F5F5;
+
+                & .funAtendente{
+                    width: 46%;
+                    margin-left: 2%;
+                    margin-top: 3%;
+                    height: 15%;
+                    font-size: 27px;
+                    color: #F5F5F5;
+                    background-color: darkgreen;
+                    cursor: pointer;
+                }
+                & .funAtendente:hover{
+                    width: 47%;
+                    margin-top: 2.5%;
+                    height: 16%;
+                    box-shadow: 1px 1px 20px rgb(117, 117, 116);
+                    border: solid 1px white;
+                }
             }
 
            }
