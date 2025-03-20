@@ -151,7 +151,8 @@ export class Pdv extends Component{
         }
 
         cadastrarProduto(){
-         // this.props.navigate("/login")
+           
+            
         }
 
 
@@ -264,7 +265,9 @@ export class Pdv extends Component{
                              </div>
                              <div className='divMenuAtendente'>
                                         <Link to="/cadastrarproduto"><button className='funAtendente' >Cadastrar Produto</button> </Link> 
-                                            <button className='funAtendente'>Cadastrar Categoria</button>
+                                            <button className='funAtendente' onClick={()=>{
+                                                this.cadastrarProduto()
+                                            }}>Cadastrar Categoria</button>
                                             <button className='funAtendente'>Cadastrar Cliente</button>
                                             <button className='funAtendente'>Consultar Produto</button>
                                             <button className='funAtendente'>Consultar Estoque</button>
