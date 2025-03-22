@@ -24,11 +24,11 @@ export class CadastrarProduto extends Component{
                             <input  type="text" name="codBarra" className="d-prod-input input-two" placeholder="Codigo de barra"></input>
                         </div>
                         <div className="d-prod-1">
-                            <input type="text" name="validity"  className="d-prod-input" placeholder="Validade"></input>
+                            <input type="text" name="pricePurchase"  className="d-prod-input" placeholder="Valor de Compra"></input>
                             <input  type="text" name="priceSales" className="d-prod-input input-two" placeholder="Valor de venda"></input>
                         </div>
                         <div className="d-prod-1">
-                            <input type="text" name="pricePurchase"  className="d-prod-input" placeholder="Valor de Compra"></input>
+                            <input type="text" name="validity"  className="d-prod-input" placeholder="Validade"></input>
                             <input  type="text" name="mark" className="d-prod-input input-two" placeholder="Marca"></input>
                         </div>
                         <div className="d-prod-1">

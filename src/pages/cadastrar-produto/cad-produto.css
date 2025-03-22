@@ -1,3 +1,4 @@
+@media screen and (max-width: 2400px) {
 div#bl-cad_prod{
     width: 50%;
     height: 92vh;
@@ -110,4 +111,111 @@ button#voltar{
     cursor: pointer;
     justify-content: center;
     align-items: center;
+}
+}
+@media screen and (max-width: 1600px) {
+
+    div#bl-cad_prod{
+        width: 800px;
+        height: 130vh;
+        margin-top: 60px;
+        float: left;
+        margin-left: 25%;
+        padding: 15px;
+        border-radius: 20px;
+    
+        & #divh1{
+            width: 500px;
+            height: 70px;
+            float: left;
+            margin-left: 150px;
+            margin-top: -50px;
+    
+            & h1{
+                height: 60px;
+                justify-content: center;
+                text-align: center;
+                padding-top: 10px;
+                border-radius: 10px;
+                text-transform: uppercase;
+            }
+        }
+    
+        & #inputs{
+            margin-top: 80px;
+         
+            
+            & #search{
+                display: grid;
+                grid-template-columns:63% 250px ;
+                margin-left: 20px;
+                & .d-prod-input:placeholder{
+                 
+    
+                }
+                & button{
+                     margin-left: 15%;
+                    font-size: 25px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+                & button:hover{
+                    
+                }
+            }
+        }
+    }
+    .d-prod-1{
+        margin-top: 40px;
+        height: 50px;
+        margin-left: 20px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+    }
+    .d-prod-2{
+        margin-top: 45px;
+        display: grid;
+        margin-left: 20px;
+        grid-template-columns: 30% 30% 30%;
+        height: 50px;
+    
+        & button{
+            margin-left: 20%;
+        }
+    }
+    .d-prod-input{
+        height: 45px;
+        font-size: 25px;
+        padding-left: 15px;
+    }
+    .input-two{
+        margin-left: 40px;
+    }
+    .btn-cad{
+        height: 45px;
+        margin-top: -10px;
+        margin-left: 15%;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .btn-cad:hover{
+
+    }
+    div#d-prod-voltar{
+        width: 100%;
+        margin-top: 50px;
+        align-items: center;
+    }
+    button#voltar{
+        width: 200px;
+        height: 45px;
+        margin-left: 300px;
+        font-size: 20px;
+        border-radius: 10px;
+        margin-top: -15px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
 }
