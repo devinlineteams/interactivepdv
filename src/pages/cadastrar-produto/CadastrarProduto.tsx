@@ -1,10 +1,14 @@
-import { Component } from "react";
+import { Component, HTMLAttributeAnchorTarget, HTMLAttributes } from "react";
 import './cad-produto.css'
 import { Link } from "react-router-dom";
 
 export class CadastrarProduto extends Component{
 
-
+        mudarTipo=()=>{
+            let elemento = (document.getElementById("validity") as HTMLAttributest)
+              
+            console.log(` o atribuit é ${elemento}`)
+        }
 
     render(){
 
@@ -40,7 +44,7 @@ export class CadastrarProduto extends Component{
                             <input  type="text" name="notafiscal" className="d-prod-input input-two" placeholder="Nota fiscal"></input>
                         </div>
                         <div className="d-prod-1">
-                            <input type="date" name="validity"  className="d-prod-input" placeholder="Validade"></input>
+                            <input type="date" id="validity" onFocus={this.mudarTipo} name="validity"  className="d-prod-input" placeholder="Validade"></input>
                             <input  type="text" name="Quantidade" className="d-prod-input input-two" placeholder="Quantidade"></input>
                         </div>
                         <div className="d-prod-1">
