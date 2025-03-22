@@ -39,6 +39,14 @@ export class CadastrarProduto extends Component{
                             <input type="date" name="dateRegistre"  className="d-prod-input" placeholder="Data Cadastro"></input>
                             <input  type="text" name="notafiscal" className="d-prod-input input-two" placeholder="Nota fiscal"></input>
                         </div>
+                        <div className="d-prod-1">
+                            <input type="date" name="validity"  className="d-prod-input" placeholder="Validade"></input>
+                            <input  type="text" name="Quantidade" className="d-prod-input input-two" placeholder="Quantidade"></input>
+                        </div>
+                        <div className="d-prod-1">
+                            <input type="text" name="desconto"  className="d-prod-input" placeholder="Desconto"></input>
+                            <input  type="text" name="notafiscal" className="d-prod-input input-two" placeholder="Quantidade"></input>
+                        </div>
                         <div className="d-prod-2">
                             <button className="btn-cad"> Cadastrar</button>
                             <button className="btn-cad" >Alterar</button>
