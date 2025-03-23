@@ -1,123 +1,193 @@
-@media screen and (max-width: 2400px) {
-div#bl-cad_prod{
-    width: 50%;
-    height: 92vh;
-    margin-top: 60px;
-    float: left;
-    margin-left: 25%;
-    background-color: #2F4F4F;
-    border: solid 4px #008080;
-    padding: 15px;
-    border-radius: 20px;
+@media screen and (max-width: 3400px) {
+        div#bl-cad_prod{
+            width: 1200px;
+            height: 115vh;
+            margin-top: 60px;
+            float: left;
+            margin-left: 30%;
+            background-color: #2F4F4F;
+            border: solid 4px #008080;
+            padding: 15px;
+            border-radius: 20px;
 
-    & #divh1{
-        width: 500px;
-        height: 70px;
-        float: left;
-        margin-left: 32%;
-        margin-top: -50px;
+            & #divh1{
+                width: 500px;
+                height: 70px;
+                float: left;
+                margin-left: 30%;
+                margin-top: -50px;
 
-        & h1{
-            height: 60px;
-            justify-content: center;
-            text-align: center;
-            padding-top: 10px;
+                & h1{
+                    height: 60px;
+                    justify-content: center;
+                    text-align: center;
+                    padding-top: 10px;
+                    border-radius: 10px;
+                    border: solid 1px white;
+                    text-transform: uppercase;
+                    background-color: #008080;
+                }
+            }
+
+            & #inputs{
+                margin-top: 80px;
+            
+                
+                & #search{
+                    display: grid;
+                    grid-template-columns:70% 250px ;
+                    margin-left: 20px;
+                    & .d-prod-input:placeholder{
+                    
+
+                    }
+                    & button{
+                        background-color: #224566;
+                        margin-left: 15%;
+                        font-size: 25px;
+                        border-radius: 10px;
+                        border: solid 1px white;
+                        color: white;
+                        cursor: pointer;
+                    }
+                    & button:hover{
+                        box-shadow: 1px 1px 10px white;
+                    }
+                }
+                & div#divDate{
+
+                    width: 1125px;
+                    margin-top: 60px;
+                    padding-top: 3px;
+                    padding-left:0%;
+                    height: 70px;
+                    margin-left: 40px;
+                    display: grid;
+                    grid-template-columns: 570px 530px;
+
+                    & .divsub{
+                        width: 98%;
+                        height: 60px;
+                        padding-left: 0px;
+                        margin-top: -20px;
+
+                        & .input-dt-two{
+                            width: 500px;
+                            height: 54px;
+                            margin-left: 30px;
+                        }
+                    }
+
+                    & .lbDate{
+                        width: 250px;
+                        height: 25px;
+                        float: left;
+                        margin-top: -25px;
+                        text-align: center;
+                        position: relative;
+                        z-index: 2;
+                        margin-left: 150px;
+                        color: #224566;
+                        background-color: darkgray;
+                        font-size: 20px;
+                        border:solid 1px black;
+                        border-radius: 5px;
+                        
+                    }
+                    & .input-dt{
+                        width: 540px;
+                        height: 54px;
+                        z-index: 1;
+                        position: relative;
+                        font-size: 25px;
+                        padding-left: 20px;
+                        margin-top: -10px;
+                    }
+                }
+            }
+        }
+        .d-prod-1{
+            width: 95%;
+            margin-top: 60px;
+            padding-top: 3px;
+            padding-left:2%;
+            height: 52px;
+            margin-left: 20px;
+            display: grid;
+            grid-template-columns: 49% 49%;
+
+            & select#primarycategory{
+                font-size: 18px;
+                padding-left: 15px;
+            }
+            & select#secondycategory{
+                font-size: 18px;
+                padding-left: 15px;
+                margin-left: 40px;
+            }
+           
+        }
+        .select{
+           color:cornflowerblue;
+        }
+        .d-prod-2{
+            margin-top: 80px;
+            display: grid;
+            margin-left: 20px;
+            grid-template-columns: 30% 30% 30%;
+            height: 50px;
+
+            & button{
+                margin-left: 20%;
+            }
+        }
+        .d-prod-input{
+            height: 45px;
+            font-size: 25px;
+            padding-left: 15px;
+        }
+        .d-prod-input::placeholder{
+            color: cornflowerblue;
+        }
+        .input-two{
+            margin-left: 40px;
+        }
+        .btn-cad{
+            background-color: #224566;
+            margin-left: 15%;
+            font-size: 25px;
             border-radius: 10px;
             border: solid 1px white;
-            text-transform: uppercase;
-            background-color: #008080;
+            color: white;
+            cursor: pointer;
         }
-    }
-
-    & #inputs{
-        margin-top: 80px;
-     
-        
-        & #search{
-            display: grid;
-            grid-template-columns:70% 250px ;
-            margin-left: 20px;
-            & .d-prod-input:placeholder{
-             
-
-            }
-            & button{
-                background-color: #224566;
-                margin-left: 15%;
-                font-size: 25px;
-                border-radius: 10px;
-                border: solid 1px white;
-                color: white;
-                cursor: pointer;
-            }
-            & button:hover{
-                box-shadow: 1px 1px 10px white;
-            }
+        .btn-cad:hover{
+            box-shadow: 1px 1px 10px white;
         }
-    }
-}
-.d-prod-1{
-    margin-top: 60px;
-    height: 50px;
-    margin-left: 20px;
-    display: grid;
-    grid-template-columns: 48% 48%;
-}
-.d-prod-2{
-    margin-top: 80px;
-    display: grid;
-    margin-left: 20px;
-    grid-template-columns: 30% 30% 30%;
-    height: 50px;
-
-    & button{
-        margin-left: 20%;
-    }
-}
-.d-prod-input{
-    height: 45px;
-    font-size: 25px;
-    padding-left: 15px;
-}
-.input-two{
-    margin-left: 40px;
-}
-.btn-cad{
-    background-color: #224566;
-    margin-left: 15%;
-    font-size: 25px;
-    border-radius: 10px;
-    border: solid 1px white;
-    color: white;
-    cursor: pointer;
-}
-.btn-cad:hover{
-    box-shadow: 1px 1px 10px white;
-}
-div#d-prod-voltar{
-    width: 100%;
-    margin-top: 50px;
-    align-items: center;
-}
-button#voltar{
-    width: 200px;
-    height: 50px;
-    margin-left: 45%;
-    background-color: #224566;
-    font-size: 25px;
-    border-radius: 10px;
-    border: solid 1px white;
-    color: white;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-}
+        div#d-prod-voltar{
+            width: 100%;
+            margin-top: 50px;
+            align-items: center;
+        }
+        button#voltar{
+            width: 200px;
+            height: 50px;
+            margin-left: 45%;
+            background-color: #224566;
+            font-size: 25px;
+            border-radius: 10px;
+            border: solid 1px white;
+            color: white;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
 }
 @media screen and (max-width: 1600px) {
 
     div#bl-cad_prod{
         width: 800px;
-        height: 130vh;
+        height: 115vh;
         margin-top: 60px;
         float: left;
         margin-left: 25%;
@@ -163,6 +233,59 @@ button#voltar{
                     
                 }
             }
+            & div#divDate{
+
+                width: 800px;
+                margin-top: 30px;
+                padding-top: 3px;
+                padding-left:0%;
+                height: 50px;
+                margin-left: 30px;
+                display: grid;
+                grid-template-columns: 570px 530px;
+    
+                & .divsub{
+                    width: 367px;
+                    height: 50px;
+                    padding-left: 0px;
+                    margin-top: 0px;
+    
+                    & .input-dt-two{
+                        width: 303px;
+                        height: 45px;
+                        margin-left: 0px;
+                    }
+                }
+                & .divsub2{
+                    margin-left: -160px;
+                }
+    
+                & .lbDate{
+                    width: 170px;
+                    height: 20px;
+                    float: left;
+                    margin-top: -20px;
+                    text-align: center;
+                    position: relative;
+                    z-index: 2;
+                    margin-left: 100px;
+                    color: #224566;
+                    background-color: darkgray;
+                    font-size: 15px;
+                    border:solid 1px black;
+                    border-radius: 5px;
+                    
+                }
+                & .input-dt{
+                    width: 340px;
+                    height: 45px;
+                    z-index: 1;
+                    position: relative;
+                    font-size: 25px;
+                    padding-left: 20px;
+                    margin-top: -8px;
+                }
+            }
         }
     }
     .d-prod-1{
@@ -170,7 +293,19 @@ button#voltar{
         height: 50px;
         margin-left: 20px;
         display: grid;
-        grid-template-columns: 48% 48%;
+        grid-template-columns: 47% 49%;
+
+        & select#primarycategory{
+                font-size: 18px;
+                padding-left: 15px;
+            }
+        & select#secondycategory{
+                font-size: 18px;
+                padding-left: 15px;
+                margin-left: 40px;
+            }
+        
+        
     }
     .d-prod-2{
         margin-top: 45px;
