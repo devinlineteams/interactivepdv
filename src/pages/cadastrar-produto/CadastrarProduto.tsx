@@ -8,7 +8,6 @@ import CadProdutoservice from "@/service/CadProdutoService";
 
 export class CadastrarProduto extends Component{
 
-
     buscarProduto = (e) =>{
         e.preventDefault();
         let search:string = (document.getElementById('search') as HTMLInputElement).value;
@@ -63,9 +62,6 @@ export class CadastrarProduto extends Component{
         console.log( ` entrou no delete cadastro`)
     }
 
-        mudarTipo=()=>{
-
-        }
 
 
     render(){
