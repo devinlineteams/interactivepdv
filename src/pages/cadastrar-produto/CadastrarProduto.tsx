@@ -3,9 +3,10 @@ import './cad-produto.css'
 import { Link } from "react-router-dom";
 
 export class CadastrarProduto extends Component{
-
+ 
         mudarTipo=()=>{
             let elemento = (document.getElementById("validity") as HTMLAttributest)
+            elemento.
               
             console.log(` o atribuit é ${elemento}`)
         }
