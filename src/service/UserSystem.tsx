@@ -7,7 +7,7 @@ class UserSystems{
 
 
 
-  static UserOfSystem = new Funcionario("","","",false,"","","","","","","","","","");
+  static UserOfSystem = new Funcionario();
 
   static Logar(login:string, password:string){
 
@@ -22,6 +22,7 @@ class UserSystems{
    }
 
    getUserSystem(token:string){
+      UserSystems.UserOfSystem.setToken = token;
       let getUserSystema = new GetUserSystem();
       getUserSystema.getUserSystema(token);
    }

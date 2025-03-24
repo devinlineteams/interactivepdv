@@ -5,6 +5,8 @@ class GetUserSystem{
 
     async getUserSystema(token:string){
 
+        let respoantaRespostaDoSystema;
+
         try{
 
             const axiosConfig = {
@@ -20,9 +22,10 @@ class GetUserSystem{
                     
                           await  http.get("/getUserSystema", axiosConfig)
                           .then((response)=>{
+                            respoantaRespostaDoSystema = response;
                             return response;
                           })
-
+                          console.log(respoantaRespostaDoSystema)
         }
         catch(erro)   {
             console.log(" entrou no erro pegar usuario do sistema")

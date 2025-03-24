@@ -173,6 +173,7 @@ import { jwtDecode} from "jwt-decode";
 import Cookies from 'js-cookie';
 import { jwtExpirationDateConvert } from "@/utils";
 import GetAllProdutosDao from "@/dao/GetAllProdutosDao";
+import UserSystems from "@/service/UserSystem";
 
 function ViewLogin({
 
@@ -214,6 +215,11 @@ function ViewLogin({
         })
        
     }
+    const getUserSystem = (token:string)=>{
+        let userSystem = new UserSystems();
+        userSystem.getUserSystem(token);
+        
+    }
     useEffect(()=>{
         if(data?.jwt_token){
             const decoded:DecodedJwt = jwtDecode(data?.jwt_token);
@@ -224,6 +230,8 @@ function ViewLogin({
             if(Cookies.get('Authorization')){
                 const token:string = String(Cookies.get('Authorization'));
                 GetAllProdutosDao.prototype.getAllProductoServdor(token)
+
+                getUserSystem(token);
 
                 navigate('/pdv')
             } 
