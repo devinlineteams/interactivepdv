@@ -13,6 +13,7 @@ import { covertDoubleEmReal } from '@/utils';
 import { Link } from "react-router";
 
 import './pdvcss.css'
+import UserSystems from '@/service/UserSystem';
 
 export class Pdv extends Component{
 
@@ -149,14 +150,13 @@ export class Pdv extends Component{
             this.getAllProductosDaoLocal();
 
         }
+        getUserSystem(){
+            const token:string = String(Cookies.get('Authorization'));
+            let userSystem = new UserSystems();
+            userSystem.getUserSystem(token);
 
-        cadastrarProduto(){
-           
-            
+        
         }
-
-
-
         componentDidMount() {
             this.getAllProductosDaoLocal();
 

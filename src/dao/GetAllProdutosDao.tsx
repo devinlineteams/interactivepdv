@@ -18,7 +18,6 @@ class GetAllProdutosDao{
                     }}
             
                     console.log("entrou no getAll produto servidor")
-                /* getAllProducto("/getAllproducto")*/
               await  http.post("/getAllproducto",{"":""}, axiosConfig).then((response)=>{this.Produtos = response.data})
              
             }catch(erro)   {
@@ -26,7 +25,7 @@ class GetAllProdutosDao{
             }finally{
                 console.log(" entrou no finaly do get all produto")
             }
-            console.log(this.Produtos);
+           
             return this.Produtos;
     }
 
@@ -45,6 +44,7 @@ class GetAllProdutosDao{
 
         return newProduto;
     }
+
 
 }
 export default GetAllProdutosDao;
