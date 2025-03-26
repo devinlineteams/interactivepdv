@@ -1,5 +1,6 @@
 import { Component } from "react";
-import './cad-produto.css'
+import './cad-produto.css';
+import Popup from 'reactjs-popup';
 import { Link } from "react-router-dom";
 
 export class CadastrarProduto extends Component{
