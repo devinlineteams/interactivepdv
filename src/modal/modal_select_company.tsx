@@ -22,6 +22,12 @@ function ModalSelectCompany(){
             
             })   
       }
+    const toCheck= ()=>{
+        if(userSystemComtext.idCompany>0){
+            setSelectCompany(false);
+        }
+    }
+
     const handleClickSelectCompany = (e)=>{
         let company = (document.getElementById('slectCompany') as HTMLAreaElement).value;
     
@@ -45,6 +51,7 @@ function ModalSelectCompany(){
 
     useEffect(()=>{
          getCompany();
+         toCheck();
       },[])
 
     return(

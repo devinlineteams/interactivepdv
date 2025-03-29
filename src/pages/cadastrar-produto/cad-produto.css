@@ -9,6 +9,7 @@
             border: solid 4px #008080;
             padding: 15px;
             border-radius: 20px;
+            position: absolute;
 
             & #divh1{
                 width: 500px;

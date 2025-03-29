@@ -263,6 +263,7 @@ function  Pdv2() {
                                             <button className='funAtendente'>Consultar Produto</button>
                                             <button className='funAtendente'>Consultar Estoque</button>
                                             <button className='funAtendente'>Vendas</button>
+                                            <button className='funAtendente'>Caixa</button>
                              </div>
                          </div>
      
