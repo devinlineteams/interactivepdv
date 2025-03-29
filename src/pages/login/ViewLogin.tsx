@@ -167,19 +167,22 @@ const DivFormulario = styled.div`
 import { userFormValidation, usePost } from "@/hooks";
 import { MessegaPorps, LoginData, LoginPostData, DecodedJwt } from "@/types";
 import { FormComponet } from "@/components";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode} from "jwt-decode";
 import Cookies from 'js-cookie';
 import { jwtExpirationDateConvert } from "@/utils";
 import GetAllProdutosDao from "@/dao/GetAllProdutosDao";
 import UserSystems from "@/service/UserSystem";
+import { UserSystemContext } from "@/context/userSistemContext";
 
 function ViewLogin({
 
 }:ReturnType<typeof ViewModelLogin>){
 
     const navigate = useNavigate()
+    
+    const userContext= useContext(UserSystemContext);
 
     const inputs = [
         {type:'email', placeholder:'email'},
@@ -215,12 +218,17 @@ function ViewLogin({
         })
        
     }
-    const getUserSystem = (token:string)=>{
-        let userSystem = new UserSystems();
-        userSystem.getUserSystem(token);
+    const getUserSystem = async (token:string)=>{
+         const user = UserSystems.prototype.getUserSystem(token);
+         user.then(async (response)=>{
+           await userContext.setIdEmployee(response['idEmployee'])
+           userContext.setNameUserSystem(response['userName'])
+    
+         })
+      
         
     }
-    useEffect(()=>{
+    useEffect( ()=>{
         if(data?.jwt_token){
             const decoded:DecodedJwt = jwtDecode(data?.jwt_token);
             Cookies.set('Authorization',data?.jwt_token,{
@@ -229,11 +237,11 @@ function ViewLogin({
             })
             if(Cookies.get('Authorization')){
                 const token:string = String(Cookies.get('Authorization'));
-                GetAllProdutosDao.prototype.getAllProductoServdor(token)
+                GetAllProdutosDao.prototype.getAllProductoServdor(userContext.idEmployee)
 
-                getUserSystem(token);
+               getUserSystem(token);
 
-                navigate('/pdv')
+               navigate('/pdv')
             } 
         }
     },[data, navigate])

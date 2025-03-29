@@ -1,3 +1,25 @@
+export interface userSistem{
+    idEmployee:number,
+    assignment:string,
+    situation:boolean,
+    idLogin:number,
+    userId:number,
+    idCompany:number,
+    idLogin: number,
+    userId: number,
+    userName: styring,
+    userSobreName:string,
+    email: string,
+    cpf:string
+
+}
+export interface CompanyModel {
+
+    cnpj:string,
+    companyName:string,
+    idEmployee:number
+
+}
 export interface Producto{
     index:number,
     batch:string,

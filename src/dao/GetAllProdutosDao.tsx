@@ -4,9 +4,9 @@ import { Producto } from "@/model/Producto"
 class GetAllProdutosDao{
     
 
-   Produtos:Producto[]=[]
+     Produtos:Producto[]=[]
 
-    async getAllProductoServdor(token:string){
+    async getAllProductoServdor(idCompnay:number){
 
        try{
             const axiosConfig = {headers:{
@@ -14,16 +14,16 @@ class GetAllProdutosDao{
                     "Access-Control-Allow-Headers": "Authorization", 
                     "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
                     "Content-Type": "application/json;charset=UTF-8",
-                    "authorization":token
                     }}
             
                     console.log("entrou no getAll produto servidor")
-              await  http.post("/getAllproducto",{"":""}, axiosConfig).then((response)=>{this.Produtos = response.data})
+              await  http.get("/getAllproducto?idCompany="+idCompnay, axiosConfig)
+                .then((response)=>{this.Produtos = response.data})
              
             }catch(erro)   {
-                console.log(" entrou no erro get all produto")
+                console.log(` erro get all produto ${erro}`)
             }finally{
-                console.log(" entrou no finaly do get all produto")
+                console.log("entrou no finaly get all produto")
             }
            
             return this.Produtos;

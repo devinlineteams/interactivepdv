@@ -1,4 +1,4 @@
-import { ChangeEvent, Component, useEffect, useState } from 'react';
+import { ChangeEvent, Component, useContext, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios";
 import SerachComponent from '@/components/serchComponent';
@@ -8,69 +8,85 @@ import { Carrinho } from '@/service';
 import Produto from '@/model/Produto';
 import ListPdvComponente from '../../components/ListPdvComponente';
 
-import { Producto } from '@/model/Producto';
 import { covertDoubleEmReal } from '@/utils';
 import { Link } from "react-router";
 
 import './pdvcss.css'
 import UserSystems from '@/service/UserSystem';
+import Funcionario from '@/model/Funcionario';
+import ModalSelectCompany from '@/modal/modal_select_company';
+import { Producto } from '@/model/profileData';
+import React from 'react';
+import { UserSystemContext } from '@/context/userSistemContext';
 
-export class Pdv extends Component{
 
 
-     inputs = [
+function  Pdv2() {
+
+   let carrinho = new Carrinho();
+   //const {idEmployee} = useContext(UserSystemContext);
+   //const {idCompany} = useContext(UserSystemContext);
+   const userSystemContext = useContext(UserSystemContext)
+   let listProducto:Producto[]=[];
+   
+   const  inputs = [
         {type:'input', placeholder:'search'},
     ]
 
-        state ={
-                searchValue:'',
-                displayProduto:'',
-                desableButton:true,
-                resetDisplayProdut:false,
-                totalItem:0,
-                valorTotal:0,
-                cart:[] 
-            }
+   // const [searchValue, setSearchValue] = useState('');
+    
+    const [displayProduto, setDisplayProduto] = useState('');
 
-        cart = new Carrinho();
+    const [desableButtons, setDesableButton] = useState(true);
 
-        static listPorducto:Producto[]=[];
+    const [resetDisplayProdut, setResetDisplayProdut] = useState(false);
 
-        handleChangeSearch = async (e)=>{
+    const [totalItens, setTotalItens] = useState(0);
+
+    const [valorTotal, setValorTotal] = useState(0);
+
+    const [cart, setCart] = useState<Producto[] | undefined>([]);
+    
+    const [company, setCompany] = useState('');
+
+    const [nameUserSystem, setNameUserSystem] = useState('');
+
+
+       const handleChangeSearch = async (e)=>{
             const {value} = e.target;
-
-            for(let i=0; i<Pdv.listPorducto.length;i++){
-                if(Pdv.listPorducto[i].codBarra ===value){
+            getAllProductosDaoLocal()
+            for(let i=0; i<listProducto.length;i++){
+                if(listProducto[i].codBarra ===value){
                     let quantInput = (document.getElementById('quantInput') as HTMLAreaElement).value;
                     
                     if(!quantInput) quantInput =1
 
-                    const prod:Producto ={
-                        batch : Pdv.listPorducto[i].batch,
-                        codBarra : Pdv.listPorducto[i].codBarra,
-                        dateRegistre : Pdv.listPorducto[i].dateRegistre,
-                        idProducto : Pdv.listPorducto[i].idProducto,
-                        idSupplier : Pdv.listPorducto[i].idSupplier,
-                        index : Pdv.listPorducto[i].index,
-                        line : Pdv.listPorducto[i].line,
-                        mark : Pdv.listPorducto[i].mark,
-                        nameProduto : Pdv.listPorducto[i].nameProduto,
-                        notafiscal : Pdv.listPorducto[i].notafiscal,
-                        pricePurchase : Pdv.listPorducto[i].pricePurchase,
-                        priceSales : Pdv.listPorducto[i].priceSales,
-                        quant :  Number(quantInput),
-                        quantidadeEstoque : Pdv.listPorducto[i].quantidadeEstoque,
-                        validity : Pdv.listPorducto[i].validity,
-                        vTotal : ( Number (quantInput) * Number(Pdv.listPorducto[i].priceSales)),
-                        discount:0,
-                        funcaoDeleteItem : Pdv.listPorducto[i].funcaoDeleteItem
+                        const prod:Producto ={
+
+                            batch : listProducto[i].batch,
+                            codBarra : listProducto[i].codBarra,
+                            dateRegistre : listProducto[i].dateRegistre,
+                            idProducto : listProducto[i].idProducto,
+                            idSupplier : listProducto[i].idSupplier,
+                            index : listProducto[i].index,
+                            line : listProducto[i].line,
+                            mark : listProducto[i].mark,
+                            nameProduto : listProducto[i].nameProduto,
+                            notafiscal : listProducto[i].notafiscal,
+                            pricePurchase : listProducto[i].pricePurchase,
+                            priceSales : listProducto[i].priceSales,
+                            quant :  Number(quantInput),
+                            quantidadeEstoque : listProducto[i].quantidadeEstoque,
+                            validity : listProducto[i].validity,
+                            vTotal : ( Number (quantInput) * Number(listProducto[i].priceSales)),
+                            discount:0,
+                            funcaoDeleteItem : listProducto[i].funcaoDeleteItem
                     };
-                    this.plusValorTotal(Number(prod.vTotal))
-                    this.quantidadeDeItems(Number(prod.quant))
-                    this.addProductoCarrinho(prod)
-                    this.clienElementoInputSearch();
-               
-                    console.log(Pdv.listPorducto[i])
+                    plusValorTotal(Number(prod.vTotal))
+                    quantidadeDeItems(Number(prod.quant))
+                    addProductoCarrinho(prod)
+                    clienElementoInputSearch();
+                    
 
                 }else{
                     console.log("entrou no else");
@@ -78,97 +94,78 @@ export class Pdv extends Component{
             }
 
         }
-       
-        plusValorTotal(v:number){
-
-            let {valorTotal} = this.state
-
-            let vTo = valorTotal + v;
-
-            this.setState({valorTotal:vTo})
-
+    
+       const plusValorTotal = (v:number)=>{
+            let vTo = Number(valorTotal + v);
+            setValorTotal(vTo)
         }
-        quantidadeDeItems(itens:number){
-            let {totalItem} = this.state
-            let totItens = totalItem + itens;
-
-            this.setState({totalItem:totItens})
-            this.setState({totalItem:totItens})
+       const quantidadeDeItems =(itens:number)=>{
+            totalItens
+            let total = totalItens+ itens;
+            setTotalItens(total)
         }
-
-        clienElementoInputSearch(){
-            this.getCart();
+       const clienElementoInputSearch =()=>{
+            getCart();
+            console.log("entrou no metodo clean")
             setTimeout( ()=>{
                 const serach = (document.getElementById('search') as HTMLInputElement).value ="";
             },1500)
         }
-        async getCart(){
-            const newCart = this.cart.getCartForLi();
-            await  this.setState({cart:newCart})
-            console.log("Início get cart carrinho");
-             const {cart} = this.state;
-
-
+        const getCart= async ()=>{
+            const newCart = carrinho.getCartForLi();
+            setCart(newCart);
         }
-        addProductoCarrinho(producto:Producto){
-            this.cart.addProductToTheCart(producto)
+       const addProductoCarrinho = (producto:Producto)=>{
+            carrinho.addProductToTheCart(producto)
         }
-
-        handleBlue = ()=>{
-          this.setState({desableButton:false})
-
+       const handleBlue = ()=>{
+        setDesableButton(false)
         }
-
-        handleclick =(e: React.FormEvent)=>{
+       const handleclick =(e: React.FormEvent)=>{
             e.preventDefault();
-            this.getAllProductosDaoServidor();
-
+            getAllProductosDaoServidor();
         }
-        deleteItem = (index:number)=>{
-            this.cart.deleteProduct(index);
-            this.vTotalWithDiscount();
-
+       const deleteItem = (index:number)=>{
+            carrinho.deleteProduct(index);
+            vTotalWithDiscount();
         }
-        descontoItem =(index:number, desconto:string)=>{
-            this.cart.setDescontoItemCart(index, Number(desconto));
-            this.vTotalWithDiscount();
-    
+       const descontoItem = (index:number, desconto:string)=>{
+            carrinho.setDescontoItemCart(index, Number(desconto));
+            vTotalWithDiscount();
         }
-        vTotalWithDiscount(){
-
-            this.setState({valorTotal:this.cart.getTotalValue()})
-
+       const vTotalWithDiscount=()=>{
+             setValorTotal(carrinho.getTotalValue())
         }
 
-        getAllProductosDaoLocal = ()=>{
-            Pdv.listPorducto =  GetAllProdutosDao.prototype.getAllProdutos();
+       const getAllProductosDaoLocal = ()=>{
+          listProducto =  GetAllProdutosDao.prototype.getAllProdutos();
 
         }
-        getAllProductosDaoServidor(){
-            const token:string = String(Cookies.get('Authorization'));
-            GetAllProdutosDao.prototype.getAllProductoServdor(token);
-            this.getAllProductosDaoLocal();
-
+      const getAllProductosDaoServidor=()=>{
+          //  const token:string = String(Cookies.get('Authorization'));
+           // GetAllProdutosDao.prototype.getAllProductoServdor(token);
+           GetAllProdutosDao.prototype.getAllProductoServdor(userSystemContext.idEmployee);
+            getAllProductosDaoLocal();
         }
 
-        componentDidMount() {
-            this.getAllProductosDaoLocal();
-
+       const getUserSystem =()=>{
+            let token:string = String(Cookies.get('Authorization'));
+           let user = UserSystems.prototype.getUserSystem(token);
+            user.then((response)=>{
+                setNameUserSystem(`${response['userName']} ${response['userSobreName']}`)
+            })
+           
         }
-
-        componentDidUpdate() {
-            
-        }
-    
-
-
-    render(){
-
-
-        const {cart, desableButton, valorTotal, totalItem} = this.state;
+        useEffect(()=>{
+            getUserSystem();
+            getAllProductosDaoServidor();
+        },[])
 
         return(
+
+     
             <div id='pdv' className='divPdv'>
+                        <ModalSelectCompany />
                  <div className='divLeft'>
      
                  </div>
@@ -176,19 +173,21 @@ export class Pdv extends Component{
      
                      <div className='divSupInf'>
                          <div className='divSup'>
-                             <div id="nameEmpresa"><h1>AEJBIJU</h1></div>
+                                    <div id="dvCompany">
+                                        <h1>{userSystemContext.nameCompnay}</h1>
+                                    </div>
                              <div id="searchdiv">
                                     <input id="quantInput" placeholder='1' />
                                     <input
                                         id='search'
-                                        onChange={this.handleChangeSearch}
+                                        onChange={handleChangeSearch}
                                     />
                                     <button id="btnSearch"
-                                        onClick={ this.handleclick}
+                                        onClick={ handleclick}
                                     >Atualizar Produtos</button>
 
                                   </div>
-                             <div id="nameLogin"> <h1>Jair do Nascimento</h1></div>
+                             <div id="nameLogin"> <h1>Logado com: {userSystemContext.nameUserSystem}</h1></div>
                          </div>
                          <div className='divInf'>
                              <div className='divInfLisOfSales'>
@@ -202,7 +201,7 @@ export class Pdv extends Component{
                                                             <label>V. Unitário</label>
                                                             <label>V. Total</label>
                                                             <label id="delete" className="btn-delete-li mg-btn-li"></label>
-                                                            <label id="plus-item"></label>
+                                                            <label id="plus-item">Desconto</label>
                                                       </li>
                                                 </ul>
                                           </div>
@@ -227,8 +226,8 @@ export class Pdv extends Component{
                                                 validity={''} 
                                                 vTotal = {item.vTotal}
                                                 discount={0}
-                                                funcaoDeleteItem={this.deleteItem}
-                                                functionDesconto={this.descontoItem}
+                                                funcaoDeleteItem={deleteItem}
+                                                functionDesconto={descontoItem}
                                                  />
                                             ))
                                          }
@@ -259,15 +258,11 @@ export class Pdv extends Component{
                              </div>
                              <div className='divMenuAtendente'>
                                         <Link to="/cadastrarproduto"><button className='funAtendente' >Cadastrar Produto</button> </Link> 
-                                            <button className='funAtendente' onClick={()=>{
-                                                this.cadastrarProduto()
-                                            }}>Cadastrar Categoria</button>
+                                            <button className='funAtendente'>Cadastrar Categoria</button>
                                             <button className='funAtendente'>Cadastrar Cliente</button>
                                             <button className='funAtendente'>Consultar Produto</button>
                                             <button className='funAtendente'>Consultar Estoque</button>
                                             <button className='funAtendente'>Vendas</button>
-
-     
                              </div>
                          </div>
      
@@ -276,9 +271,7 @@ export class Pdv extends Component{
                  </div>
             </div>
          )
-    }
-    
-   
+
 }
 
-export default Pdv;
+export default Pdv2;

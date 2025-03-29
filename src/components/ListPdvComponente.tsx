@@ -16,7 +16,6 @@ import { covertDoubleEmReal } from '@/utils';
     }
 
     const handleChangeDesconto = (index:number)=>{
-
         return index
     }
     const handleChangeTreatDiscount=(desconto:string)=>{
@@ -42,17 +41,17 @@ import { covertDoubleEmReal } from '@/utils';
         <li key={index} id={`id${String(index)}`} className="li-list-product">  
                 <label>{index+1}</label>
                 <label>{nameProduto}</label>
-                <label> {`${quant}`} </label>
+                <label>{`${quant}`} </label>
                 <label>{covertDoubleEmReal( priceSales)}</label>
-                <label> {covertDoubleEmReal(vTotal)} </label>
-                <button id="delete" className='btn-delete-li mg-btn-li'
+                <label>{covertDoubleEmReal(vTotal)} </label>
+                <button  key={index}  id="delete" className='btn-delete-li mg-btn-li'
                 onClick={()=>{
                             const id = handClickDeletProduct(index);
                             funcaoDeleteItem(id)
                         }
                     }
                 ></button> 
-                <input id="descontoProduto"
+                <input   id="descontoProduto"
                     onChange={(e)=>{
                         const v = e.target.value;
                         const discount = handleChangeTreatDiscount(v)

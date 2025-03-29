@@ -63,7 +63,6 @@ class Carrinho{
       return Carrinho.cart.length;
     }
     getCartForLi(){
-
       return Carrinho.cart;
     }
 

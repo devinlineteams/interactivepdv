@@ -3,40 +3,88 @@ import User from "./User";
  class Funcionario {
 
     private jwt!:string
-    private atribuicao!:string;
-    private situacao!:string;
-    private estadoDeLogin!:boolean;
+    private assignment!:string;
+    private situacao!:boolean;
+    private name!:string;
+    private sobreName!:string;
+    private cpf!:string;
+    private idCompany!:number;
+    private idEmloyee!:number;
+    private idLogin!:number;
+    private userId!:number;
+    private email!:string;
 
     constructor( ){
 
     }
     
-    get getEstadoDeLogin(){
-        return this.estadoDeLogin;
+    get getJwt(){
+        return this.jwt;
     }
-    get getToken(){
-        return this.jwt
-    }
-
-    get getAtribuicao(){
-        return this.atribuicao
+    get getAssignment(){
+        return this.assignment;
     }
     get getSituacao(){
         return this.situacao;
     }
-    set setToken(token:string){
-        this.jwt = token;
+    get getName(){
+        return this.name;
     }
-    set setEstadoDeLogin(estadoDeLogin:boolean){
-        this.estadoDeLogin = estadoDeLogin;
+    get getSobreNome(){
+        return this.sobreName
     }
-    set setAtribuicao(atribuicao:string){
-        this.atribuicao = atribuicao;
+    get getIdCompany(){
+        return this.idCompany
     }
-    set setSituacao(situacao:string){
-        this.situacao = situacao;
+    get getIdEmployee(){
+        return this.idEmloyee
+    }
+    get getIdLogin(){
+        return this.idLogin;
+    }
+    get getUserId(){
+        return this.userId;
+    }
+    get getCpf(){
+        return this.cpf;
+    }
+    get getEmail(){
+        return this.email;
     }
 
+    set setJwt(jwt:string){
+       this.jwt = jwt;
+    }
+   set setAssignment(assignment:string){
+      this.assignment = assignment;
+    }
+   set setSituacao(situacao:boolean){
+       this.situacao = situacao;
+    }
+   set setName(name:string){
+        this.name = name;
+    }
+   set setSobreNome(sobreName:string){
+        this.sobreName = sobreName;
+    }
+   set setIdCompany(idCompany:number){
+        this.idCompany = idCompany;
+    }
+   set setIdEmployee(idEmployee:number){
+       this.idEmloyee = idEmployee;
+    }
+   set setIdLogin(idLogin:number){
+        this.idLogin = idLogin;
+    }
+   set setUserId(userId:number){
+        this.userId = userId;
+    }
+    set setCpf(cpf:string){
+        this.cpf = cpf;
+    }
+    set setEmail(email:string){
+        this.email = email;
+    }
 
 }
 export default  Funcionario;
