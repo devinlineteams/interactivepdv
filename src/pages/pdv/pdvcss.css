@@ -411,7 +411,7 @@
                             & h1{
                                 width: 100%;
                                 height: 70px;
-                                margin-top: 85px;
+                                margin-top: 30px;
                                 text-align: center;
                                 padding-top: 25px;
                                 font-size: 50px;
@@ -427,7 +427,7 @@
                             & #payment{
                                 display: grid;
                                 grid-template-rows: 50px 50px;
-                                padding-top: 70px;
+                                padding-top: 30px;
                                 padding-left: 60px;
                                 padding-right: 60px;
 
@@ -450,7 +450,7 @@
                                 & button{
                                     width: 230px;
                                     height: 50px;
-                                    margin-top: 25px;
+                                    margin-top: 0px;
                                     font-size: 25px;
                                     cursor: pointer; 
                                     border-radius: 10px;
@@ -512,9 +512,9 @@
                         cursor: pointer;
                     }
                     & .funAtendente:hover{
-                        width: 47%;
+                        width: 80%;
                         margin-top: 2.5%;
-                        height: 16%;
+
 
                     }
                 }
@@ -746,9 +746,9 @@
                         cursor: pointer;
                     }
                     & .funAtendente:hover{
-                        width: 47%;
+                        width: 80%;
                         margin-top: 2.5%;
-                        height: 16%;
+
 
                     }
                 }
@@ -981,9 +981,9 @@
                         cursor: pointer;
                     }
                     & .funAtendente:hover{
-                        width: 47%;
+                        width: 80%;
                         margin-top: 2.5%;
-                        height: 16%;
+                     
 
                     }
                 }

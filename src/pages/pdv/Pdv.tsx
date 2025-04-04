@@ -18,6 +18,12 @@ import ModalSelectCompany from '@/modal/modal_select_company';
 import { Producto } from '@/model/profileData';
 import React from 'react';
 import { UserSystemContext } from '@/context/userSistemContext';
+import Caixa from '@/components/caixa/Caixa';
+import { EstadoMenuAtendete, EstadoCaixaProvider } from '@/context/useContextMenuAtendente';
+import Registrecategory from '@/components/cad-categoria/registreCategory';
+import CadastrarClienteConsultor from '@/components/cad-cliente/cadCliente';
+import ConsultarVendasConsultor from '@/components/consulta-venda-atendente/consultarVendasConultor';
+import ConsultorProductoVendedor from '@/components/consultar-produto-atendente/consultarProductoConsultor';
 
 
 
@@ -26,7 +32,8 @@ function  Pdv2() {
    let carrinho = new Carrinho();
    //const {idEmployee} = useContext(UserSystemContext);
    //const {idCompany} = useContext(UserSystemContext);
-   const userSystemContext = useContext(UserSystemContext)
+   const userSystemContext = useContext(UserSystemContext);
+   const estadoMenuAtendente = useContext(EstadoMenuAtendete);
    let listProducto:Producto[]=[];
    
    const  inputs = [
@@ -36,20 +43,14 @@ function  Pdv2() {
    // const [searchValue, setSearchValue] = useState('');
     
     const [displayProduto, setDisplayProduto] = useState('');
-
     const [desableButtons, setDesableButton] = useState(true);
-
     const [resetDisplayProdut, setResetDisplayProdut] = useState(false);
-
     const [totalItens, setTotalItens] = useState(0);
-
     const [valorTotal, setValorTotal] = useState(0);
-
     const [cart, setCart] = useState<Producto[] | undefined>([]);
-    
     const [company, setCompany] = useState('');
-
     const [nameUserSystem, setNameUserSystem] = useState('');
+
 
 
        const handleChangeSearch = async (e)=>{
@@ -57,12 +58,9 @@ function  Pdv2() {
             getAllProductosDaoLocal()
             for(let i=0; i<listProducto.length;i++){
                 if(listProducto[i].codBarra ===value){
-                    let quantInput = (document.getElementById('quantInput') as HTMLAreaElement).value;
-                    
+                        let quantInput = (document.getElementById('quantInput') as HTMLAreaElement).value;
                     if(!quantInput) quantInput =1
-
-                        const prod:Producto ={
-
+                         const prod:Producto ={
                             batch : listProducto[i].batch,
                             codBarra : listProducto[i].codBarra,
                             dateRegistre : listProducto[i].dateRegistre,
@@ -86,8 +84,6 @@ function  Pdv2() {
                     quantidadeDeItems(Number(prod.quant))
                     addProductoCarrinho(prod)
                     clienElementoInputSearch();
-                    
-
                 }else{
                     console.log("entrou no else");
                 }
@@ -142,8 +138,6 @@ function  Pdv2() {
 
         }
       const getAllProductosDaoServidor=()=>{
-          //  const token:string = String(Cookies.get('Authorization'));
-           // GetAllProdutosDao.prototype.getAllProductoServdor(token);
            GetAllProdutosDao.prototype.getAllProductoServdor(userSystemContext.idEmployee);
             getAllProductosDaoLocal();
         }
@@ -156,6 +150,22 @@ function  Pdv2() {
             })
            
         }
+        const getCaixaComponent = async ()=>{
+            await estadoMenuAtendente.setEstado(true);
+        }
+        const getComponentRegCategory = async() =>{
+           await estadoMenuAtendente.setEstadoRegistre(true);
+        }
+
+        const getComponentCadClienteConultor = () =>{
+            estadoMenuAtendente.setEstadoCadCliente(true);
+        }
+        const getComponentConsultarVendas = () =>{
+            estadoMenuAtendente.setEstadoVendas(true);
+        }
+        const getComponentConProdConsultor = ()=>{
+            estadoMenuAtendente.setEstadoConPorducto(true)
+        }
         useEffect(()=>{
             getUserSystem();
             getAllProductosDaoServidor();
@@ -166,6 +176,12 @@ function  Pdv2() {
      
             <div id='pdv' className='divPdv'>
                         <ModalSelectCompany />
+                        <Registrecategory />
+                        <CadastrarClienteConsultor />
+                        <ConsultarVendasConsultor />
+                        <ConsultorProductoVendedor />
+                            <Caixa />
+
                  <div className='divLeft'>
      
                  </div>
@@ -258,12 +274,11 @@ function  Pdv2() {
                              </div>
                              <div className='divMenuAtendente'>
                                         <Link to="/cadastrarproduto"><button className='funAtendente' >Cadastrar Produto</button> </Link> 
-                                            <button className='funAtendente'>Cadastrar Categoria</button>
-                                            <button className='funAtendente'>Cadastrar Cliente</button>
-                                            <button className='funAtendente'>Consultar Produto</button>
-                                            <button className='funAtendente'>Consultar Estoque</button>
-                                            <button className='funAtendente'>Vendas</button>
-                                            <button className='funAtendente'>Caixa</button>
+                                            <button className='funAtendente' onClick={getComponentRegCategory} >Cadastrar Categoria</button>
+                                            <button className='funAtendente' onClick={getComponentCadClienteConultor}>Cadastrar Cliente</button>
+                                            <button className='funAtendente' onClick={getComponentConProdConsultor}>Consultar Produto</button>
+                                            <button className='funAtendente' onClick={getComponentConsultarVendas}>Vendas</button>
+                                            <button className='funAtendente' onClick={getCaixaComponent}>Caixa</button>
                              </div>
                          </div>
      

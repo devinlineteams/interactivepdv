@@ -41,3 +41,16 @@ export interface Producto{
     funcaoDeleteItem:Function
     functionDesconto:Function
 }
+
+export interface EstadoCaixaType{
+    estado:boolean,
+    estadoRegistre:boolean,
+    estadoCadCliente:boolean,
+    estadoConProducto:boolean,
+    estadoVendas:boolean,
+    setEstado:(newsState:boolean)=>void;
+    setEstadoRegistre:(newsState:boolean)=>void;
+    setEstadoCadCliente:(newsState:boolean)=>void;
+    setEstadoConPorducto:(newsState:boolean)=>void;
+    setEstadoVendas:(newsState:boolean)=>void;
+}

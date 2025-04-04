@@ -184,14 +184,39 @@
             align-items: center;
         }
 }
+@media screen and (max-width: 2400px) {
+    div#bl-cad_prod{
+        margin-left: 22%;
+    }
+
+}
+@media screen and (max-width: 2000px) {
+    div#bl-cad_prod{
+        margin-left: 20%;
+    }
+
+}
+@media screen and (max-width: 1920px) {
+    div#bl-cad_prod{
+        margin-left: 18%;
+        & #divh1{
+            margin-left: 350px;
+            & h1{
+
+            }
+
+        }
+    }
+
+}
 @media screen and (max-width: 1600px) {
 
     div#bl-cad_prod{
-        width: 800px;
+        width: 900px;
         height: 115vh;
         margin-top: 60px;
         float: left;
-        margin-left: 25%;
+        margin-left: 20%;
         padding: 15px;
         border-radius: 20px;
     
@@ -199,7 +224,7 @@
             width: 500px;
             height: 70px;
             float: left;
-            margin-left: 150px;
+            margin-left: 200px;
             margin-top: -50px;
     
             & h1{
