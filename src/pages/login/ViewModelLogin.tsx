@@ -6,8 +6,6 @@ function ViewModelLogin(){
 
     const navigate = useNavigate();
 
-    //UserSystem.Logar(Login, password);
-
 
     return{
 

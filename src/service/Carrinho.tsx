@@ -1,70 +1,72 @@
-import Produto from "../model/Produto";
+import { Producto } from "@/model/Producto";
+
 
 class Carrinho{
 
     static valueTotal:number = 0;
     static totalItem:number =0;
-    static productAdd = new Produto('','','','','','',0,'','',0,0);
+    static productAdd:Producto;
    
   
 
-    static cart:Produto[] = [
+    static cart:Producto[] = [
 
     ];
 
-
-    addProductToTheCart(product:Produto){
-    //git psuh this.calcValorTotal(product.getVTotal());
-    // const products = Carrinho.cart;
-    //  console.log(products);
-
-     Carrinho.cart.push(product);
+    addProductToTheCart(producto:Producto){
+     
+     Carrinho.cart.push(producto);
 
     }
-    deleteProduct(id:number){
-      const idString = id;
+    deleteProduct(index:number){
+      Carrinho.cart.splice(index,1)
+    }
+    setDescontoItemCart(index:number, desc:number){
+          const prod:Producto ={
+            batch :Carrinho.cart[index].batch,
+            codBarra :Carrinho.cart[index].codBarra,
+            dateRegistre :Carrinho.cart[index].dateRegistre,
+            idProducto :Carrinho.cart[index].idProducto,
+            idSupplier :Carrinho.cart[index].idSupplier,
+            index :Carrinho.cart[index].index,
+            line :Carrinho.cart[index].line,
+            mark :Carrinho.cart[index].mark,
+            nameProduto :Carrinho.cart[index].nameProduto,
+            notafiscal :Carrinho.cart[index].notafiscal,
+            pricePurchase :Carrinho.cart[index].pricePurchase,
+            priceSales :Carrinho.cart[index].priceSales,
+            quant :  Carrinho.cart[index].quant,
+            quantidadeEstoque :Carrinho.cart[index].quantidadeEstoque,
+            validity :Carrinho.cart[index].validity,
+            discount:desc,
+            vTotal : ((Number(Carrinho.cart[index].priceSales) * Number(Carrinho.cart[index].quant))  - Number(desc)),
+        
+          };
 
-      const products = Carrinho.cart;
-      
-      console.log(" o id recebido é: "+id);
+           Carrinho.cart.splice(index, 1, prod);
 
-   
-        for(let i =0; i<Carrinho.cart.length;i++){
 
-          if(Carrinho.cart[i].getId()==idString.toString()){
-             Carrinho.cart.splice(i,1);
-          }
-      
-        }
-
-        console.log(products);
     }
     static calcValorTotal(vt:number){
       Carrinho.valueTotal+=vt;
     }
     getTotalValue(){
-      return Carrinho.valueTotal;
+      let mount:number  = 0;
+      let totalOfItens = this.getCartForLi();
+          totalOfItens.map((item, index)=>{
+            mount+=Number(item.vTotal);
+        })
+
+      return mount;
     }
     getTotalItem(){
       return Carrinho.cart.length;
     }
     getCartForLi(){
-
       return Carrinho.cart;
     }
 
 
-    /*
-    calcularDesconto(v:number){
-
-        return newValue;
-    }
-          discountProdutos(value:number){
-
-        //this.calcularDesconto(value);
-    }
-        
-    */
 
 }
 export default Carrinho;

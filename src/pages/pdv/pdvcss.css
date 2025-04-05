@@ -1,0 +1,998 @@
+@media screen and (max-width: 3400px) {
+.divPdv{
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 80px 97%;
+
+    & .divLeft{
+        background-color: #316BB8;
+    }
+
+    & .divRight{
+
+        background-color: aliceblue;
+        & .divSupInf{
+            display: grid;
+           grid-template-rows: 10vh 90vh; 
+
+           & .divSup{
+            background-color: #262525;
+            padding-left: 10px;
+             display:grid;
+             grid-template-columns: 20% 55% 20%;
+
+             & div#dvCompany{
+
+                & h1{
+                    width: 200px;
+                    margin-top: 15px;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+             }
+
+             & #nameEmpresa{
+                height: 50%;
+                float: auto;
+                text-align: center;
+                margin-top: 5%;
+             }
+             & #searchdiv{
+                display: grid;
+                grid-template-columns: 75px 55% 200px;
+
+                & #quantInput{
+                    width: 70px;
+                    height: 50px;
+                    float: auto;
+                    margin-top:10px;
+                    border: solid 1px white;
+                    border-radius: 10px;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 25px;
+                    background-color:#7C7C7C;
+                    color:#F5F5F5
+                }
+
+                & #search{
+                    height: 50px;
+                    float: auto;
+                    margin-top:10px;
+                    border: solid 1px white;
+                    border-radius: 10px;
+                    padding-left: 30px;
+                    font-size: 25px;
+                    margin-left: 15px;
+                    background-color:#7C7C7C;
+                    color:#F5F5F5
+                }
+                & #btnSearch{
+                    height: 50px;
+                    background-color: #0d2663;
+                    margin-top: 12px;
+                    margin-left: 5px;
+                    margin-right: 10px;
+                    border: solid 1px white;
+                    border-radius: 5%;
+                    float: left;
+                    color:#F5F5F5;
+                    font-size: 18px;
+                    cursor: pointer;
+
+                }
+                & #btnSearch:hover{
+                    box-shadow: 1px 1px 10px 1px rgb(244, 243, 243);
+                }
+                & ::placeholder{
+                    color: #F5F5F5;
+                }
+             }
+             & #nameLogin{
+                height: 50%;
+                float: auto;
+                text-align: center;
+                margin-top: 5%;
+
+                & h1{
+                    font-size: 23px;
+                }
+             }
+           }
+           & .divInf{
+            background-color: white;
+                display: grid;
+                grid-template-columns: 75% 25%;
+
+            & .divInfLisOfSales{
+                background-color: white;
+                display: grid;
+                grid-template-rows: 69% 28%;
+
+                & .divListSales{
+                    height: 550px;
+                    padding-bottom: 50px;
+                    color: #262525;
+
+                    & #md-dv-li{
+                        height: 45px;
+                        background-color: #0d2663;
+                        color:white;
+                        &  #md-ul-li{
+
+                            & #md-li{
+                                padding-left: 10px;
+                                padding-top: 8px;
+                                height: 30px;
+                                text-transform: uppercase;
+                                display: grid;
+                                grid-template-columns: 100px 600px 120px 160px 160px 130px 150px;
+
+                                & label#delete{
+                                    margin-top: -6px;
+                                    padding-left: 15px;
+                                    display: block;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .divSaleTot{
+                    display: grid;
+                    height: 200px;
+                    grid-template-columns: 25% 75%;
+                    background-color: #454944;
+
+                    & #tot{
+                        display:grid;
+                        grid-template-columns: 50% 50%;
+
+                        & h1{
+                            width: 100%;
+                            height: 70px;
+                            margin-top: 50px;
+                            text-align: center;
+                            padding-top: 25px;
+                            font-size: 50px;
+                        }
+                        & #vTotal{
+                            margin-left: -5px;
+                        }
+                    }
+                    & #methodPayment{
+
+                        display: grid;
+                        grid-template-columns: 50% 40%;
+                        & #payment{
+                            display: grid;
+                            grid-template-rows: 50px 50px;
+                            padding-top: 50px;
+                            padding-left: 60px;
+                            padding-right: 60px;
+
+                            & select{
+                                font-size: 30px;
+                                padding-left: 10px;
+                                background-color: #e3e8e8;
+                                color: black;
+                                border-radius: 10px;
+                            }
+                        }
+                        & #finish{
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            & button{
+                                width: 230px;
+                                height: 50px;
+                                margin-top: 0px;
+                                font-size: 25px;
+                                background-color: #224566;
+                                border:solid 2px white;
+                                color: white;
+                                cursor: pointer; 
+                                border-radius: 10px;
+                            }
+                            & button:hover{
+                                border:solid 1px #262525;
+                                box-shadow: 1px 1px 13px white;
+                            }
+                        }
+                    }
+                    
+
+                }
+                    & #vTotal{
+                        display: grid;
+                        grid-template-columns: 50% 50%;
+
+                        & #infTotal{
+                            color: white;
+                            float: left;
+                            font-size: 50px;
+                            margin-top: 20%;
+                            padding-right: 0px;
+                            margin-right: 0px;
+                            margin-left: 10%;
+                        }
+                        & #vTot{
+                            color: white;
+                            float: left;
+                            font-size: 60px;
+                            margin-top: 18%;
+                            margin-left: 10px;
+                            padding-left: 0px;
+                        }
+                    }
+                }
+                
+                & ol{
+                    height: 115%;
+                    overflow: scroll;
+                    margin-left: 0px;
+                    padding-left: 50px;
+                    background-color: rgb(195, 230, 218);
+                    margin-top: -1px;
+                    & li{
+                        font-size: 25px;
+
+                        & button{
+                            width: 35px;
+                            height: 35px;
+                            float: left;
+                            margin-top:-2px;
+                            border: none;
+                            background-color: rgb(195, 230, 218);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & .divMenuAtendente{
+                background-color: #F5F5F5;
+                padding-left: 25px;
+
+                & .funAtendente{
+                    width: 80%;
+                    margin-left: 2%;
+                    margin-top: 3%;
+                    height: 90px;
+                    font-size: 27px;
+                    color: #F5F5F5;
+                    background-color: darkgreen;
+                    cursor: pointer;
+                }
+
+                & .funAtendente:hover{
+                    width: 80%;
+                    margin-top: 2.5%;
+                    height: 95px;
+                    box-shadow: 1px 1px 20px rgb(117, 117, 116);
+                    border: solid 1px white;
+                }
+            }
+
+           }
+        }
+    }
+    .liProdutos{
+        color: #262525;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .divPdv{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 80px 95.6%;
+    
+
+    
+        & .divRight{
+
+            & .divSupInf{
+                display: grid;
+               grid-template-rows: 10vh 90vh; 
+    
+               & .divSup{
+                padding-left: 10px;
+                 display:grid;
+                 grid-template-columns: 20% 55% 20%;
+    
+                 & div#dvCompany{
+    
+                    & h1{
+                        width: 200px;
+                        margin-top: 15px;
+                        text-align: center;
+                        text-transform: uppercase;
+                    }
+                 }
+    
+                 & #nameEmpresa{
+                    height: 50%;
+                    float: auto;
+                    text-align: center;
+                    margin-top: 5%;
+                 }
+                 & #searchdiv{
+                    display: grid;
+                    grid-template-columns: 75px 55% 200px;
+    
+                    & #quantInput{
+                        width: 70px;
+                        height: 50px;
+                        float: auto;
+                        margin-top:10px;
+                        border-radius: 10px;
+                        justify-content: center;
+                        text-align: center;
+                        font-size: 25px;
+
+                    }
+    
+                    & #search{
+                        height: 50px;
+                        float: auto;
+                        margin-top:10px;
+                        border-radius: 10px;
+                        padding-left: 30px;
+                        font-size: 25px;
+                        margin-left: 15px
+                    }
+                    & #btnSearch{
+                        height: 50px;
+                        margin-top: 12px;
+                        margin-left: 5px;
+                        margin-right: 10px;
+                        border-radius: 5%;
+                        float: left;
+                        font-size: 18px;
+                        cursor: pointer;
+    
+                    }
+
+
+                 }
+                 & #nameLogin{
+                    height: 50%;
+                    float: auto;
+                    text-align: center;
+                    margin-top: 5%;
+    
+                    & h1{
+                        font-size: 23px;
+                    }
+                 }
+               }
+               & .divInf{
+                    display: grid;
+                    grid-template-columns: 75% 25%;
+    
+                & .divInfLisOfSales{            
+                    display: grid;
+                    grid-template-rows: 72% 28%;
+    
+                    & .divListSales{
+                        height: 550px;
+                        padding-bottom: 50px;
+    
+                        & #md-dv-li{
+                            height: 45px;
+                            &  #md-ul-li{
+    
+                                & #md-li{
+                                    padding-top:10px;
+                                    padding-left: 15px;
+                                    text-transform: uppercase;
+                                    display: grid;
+                                    grid-template-columns: 100px 400px 100px 150px 150px 100px 100px;
+
+                                    & .btn-delete-li mg-btn-li{
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    & .divSaleTot{
+                        display: grid;
+                        grid-template-columns: 25% 75%;
+                        & #tot{
+                            display:grid;
+                            grid-template-columns: 50% 50%;
+    
+                            & h1{
+                                width: 100%;
+                                height: 70px;
+                                margin-top: 30px;
+                                text-align: center;
+                                padding-top: 25px;
+                                font-size: 50px;
+                            }
+                            & #vTotal{
+                                margin-left: -5px;
+                            }
+                        }
+                        & #methodPayment{
+    
+                            display: grid;
+                            grid-template-columns: 50% 40%;
+                            & #payment{
+                                display: grid;
+                                grid-template-rows: 50px 50px;
+                                padding-top: 30px;
+                                padding-left: 60px;
+                                padding-right: 60px;
+
+                                & h1{
+                                    font-size:25px ;
+                                }
+    
+                                & select{
+                                    font-size: 30px;
+                                    padding-left: 10px;
+                                    border-radius: 10px;
+                                }
+                            }
+                            & #finish{
+    
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+    
+                                & button{
+                                    width: 230px;
+                                    height: 50px;
+                                    margin-top: 0px;
+                                    font-size: 25px;
+                                    cursor: pointer; 
+                                    border-radius: 10px;
+                                }
+
+                            }
+                        }
+                        
+                    }
+                        & #vTotal{
+                            display: grid;
+                            grid-template-columns: 50% 50%;
+                            & #infTotal{
+                                color: white;
+                                float: left;
+                                font-size: 50px;
+                                margin-top: 20%;
+                                padding-right: 0px;
+                                margin-right: 0px;
+                                margin-left: 10%;
+                            }
+                            & #vTot{
+                                color: white;
+                                float: left;
+                                font-size: 60px;
+                                margin-top: 18%;
+                                margin-left: 10px;
+                                padding-left: 0px;
+                            }
+                        }
+                    }
+                    
+                    & ol{
+                        height: 115%;
+                        overflow: scroll;
+                        margin-left: 0px;
+                        padding-left: 50px;
+                        margin-top: -1px;
+                        & li{
+                            font-size: 25px;
+                            & button{
+                                width: 35px;
+                                height: 35px;
+                                float: left;
+                                margin-top:-2px;
+                            }
+                        }
+                    }
+                }
+                & .divMenuAtendente{
+                    padding-left: 35px;
+
+                    & .funAtendente{
+                        width: 80%;
+                        margin-left: 2%;
+                        height: 70px;
+                        font-size: 15px;
+                        color: #F5F5F5;
+                        cursor: pointer;
+                    }
+                    & .funAtendente:hover{
+                        width: 80%;
+                        margin-top: 2.5%;
+
+
+                    }
+                }
+    
+               }
+            }
+        }
+        .liProdutos{
+            color: #262525;
+        }
+
+}
+@media screen and (max-width: 1600px) {
+    .divPdv{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 80px 95.6%;
+    
+
+    
+        & .divRight{
+
+            & .divSupInf{
+                display: grid;
+               grid-template-rows: 10vh 90vh; 
+    
+               & .divSup{
+                padding-left: 10px;
+                 display:grid;
+                 grid-template-columns: 20% 55% 20%;
+    
+                 & div#dvCompany{
+    
+                    & h1{
+                        width: 200px;
+                        margin-top: 15px;
+                        text-align: center;
+                        text-transform: uppercase;
+                    }
+                 }
+    
+                 & #nameEmpresa{
+                    height: 50%;
+                    float: auto;
+                    text-align: center;
+                    margin-top: 5%;
+                 }
+                 & #searchdiv{
+                    display: grid;
+                    grid-template-columns: 75px 55% 200px;
+    
+                    & #quantInput{
+                        width: 70px;
+                        height: 50px;
+                        float: auto;
+                        margin-top:10px;
+                        border-radius: 10px;
+                        justify-content: center;
+                        text-align: center;
+                        font-size: 25px;
+
+                    }
+    
+                    & #search{
+                        height: 50px;
+                        float: auto;
+                        margin-top:10px;
+                        border-radius: 10px;
+                        padding-left: 30px;
+                        font-size: 25px;
+                        margin-left: 15px
+                    }
+                    & #btnSearch{
+                        height: 50px;
+                        margin-top: 12px;
+                        margin-left: 5px;
+                        margin-right: 10px;
+                        border-radius: 5%;
+                        float: left;
+                        font-size: 18px;
+                        cursor: pointer;
+    
+                    }
+
+
+                 }
+                 & #nameLogin{
+                    height: 50%;
+                    float: auto;
+                    text-align: center;
+                    margin-top: 5%;
+    
+                    & h1{
+                        font-size: 23px;
+                    }
+                 }
+               }
+               & .divInf{
+                    display: grid;
+                    grid-template-columns: 75% 25%;
+    
+                & .divInfLisOfSales{            
+                    display: grid;
+                    grid-template-rows: 72% 28%;
+    
+                    & .divListSales{
+                        height: 550px;
+                        padding-bottom: 50px;
+    
+                        & #md-dv-li{
+                            height: 45px;
+                            &  #md-ul-li{
+    
+                                & #md-li{
+                                    padding-top:10px;
+                                    padding-left: 15px;
+                                    text-transform: uppercase;
+                                    display: grid;
+                                    grid-template-columns: 80px 450px 100px 130px 140px 80px 80px;
+                                }
+                            }
+                        }
+                    }
+                    & .divSaleTot{
+                        display: grid;
+                        grid-template-columns: 25% 75%;
+                        & #tot{
+                            display:grid;
+                            grid-template-columns: 50% 50%;
+    
+                            & h1{
+                                width: 100%;
+                                height: 70px;
+                                margin-top: 85px;
+                                text-align: center;
+                                padding-top: 25px;
+                                font-size: 40px;
+                            }
+                            & #vTotal{
+                                margin-left: -5px;
+                            }
+                        }
+                        & #methodPayment{
+                            display: grid;
+                            grid-template-columns: 45% 40%;
+                            font-size: 25px;
+                            & #payment{
+                                display: grid;
+                                grid-template-rows: 50px 50px;
+                                padding-top: 70px;
+                                padding-left: 60px;
+                                padding-right: 60px;
+                                & h1{
+                                    font-size: 20px;
+                                }
+    
+                                & select{
+                                    font-size: 25px;
+                                    padding-left: 10px;
+                                    border-radius: 10px;
+                                }
+                            }
+                            & div#finish{
+                                display: flex;
+                                justify-content: center;
+                                align-items: first baseline;
+                                & button{
+                                    width: 230px;
+                                    height: 50px;
+                                    margin-top: 100px;
+                                    font-size: 25px;
+                                    cursor: pointer; 
+                                    border-radius: 10px;
+                                }
+
+                            }
+                        }
+                        
+                    }
+                        & #vTotal{
+                            display: grid;
+                            grid-template-columns: 50% 50%;
+                            & #infTotal{
+                                color: white;
+                                float: left;
+                                font-size: 50px;
+                                margin-top: 20%;
+                                padding-right: 0px;
+                                margin-right: 0px;
+                                margin-left: 10%;
+                            }
+                            & #vTot{
+                                color: white;
+                                float: left;
+                                font-size: 60px;
+                                margin-top: 18%;
+                                margin-left: 10px;
+                                padding-left: 0px;
+                            }
+                        }
+                    }
+                    
+                    & ol{
+                        height: 115%;
+                        overflow: scroll;
+                        margin-left: 0px;
+                        padding-left: 50px;
+                        margin-top: -1px;
+                        & li{
+                            font-size: 25px;
+                            & button{
+                                width: 35px;
+                                height: 35px;
+                                float: left;
+                                margin-top:-2px;
+                            }
+                        }
+                    }
+                }
+                & .divMenuAtendente{
+                    padding-left: 25px;
+                    & .funAtendente{
+                        width: 80%;
+                        margin-left: 2%;
+                        height: 70px;
+                        font-size: 15px;
+                        color: #F5F5F5;
+                        cursor: pointer;
+                    }
+                    & .funAtendente:hover{
+                        width: 80%;
+                        margin-top: 2.5%;
+
+
+                    }
+                }
+    
+               }
+            }
+        }
+        .liProdutos{
+            color: #262525;
+        }
+
+}
+
+
+@media screen and (max-width: 1280px) {
+    .divPdv{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 80px 95.6%;
+    
+
+    
+        & .divRight{
+
+            & .divSupInf{
+                display: grid;
+               grid-template-rows: 10vh 90vh; 
+    
+               & .divSup{
+                padding-left: 10px;
+                 display:grid;
+                 grid-template-columns: 20% 55% 20%;
+    
+                 & div#dvCompany{
+    
+                    & h1{
+                        width: 200px;
+                        margin-top: 15px;
+                        text-align: center;
+                        text-transform: uppercase;
+                    }
+                 }
+    
+                 & #nameEmpresa{
+                    height: 50%;
+                    float: auto;
+                    text-align: center;
+                    margin-top: 5%;
+                 }
+                 & #searchdiv{
+                    display: grid;
+                    grid-template-columns: 75px 55% 200px;
+    
+                    & #quantInput{
+                        width: 70px;
+                        height: 50px;
+                        float: auto;
+                        margin-top:10px;
+                        border-radius: 10px;
+                        justify-content: center;
+                        text-align: center;
+                        font-size: 25px;
+
+                    }
+    
+                    & #search{
+                        height: 50px;
+                        float: auto;
+                        margin-top:10px;
+                        border-radius: 10px;
+                        padding-left: 30px;
+                        font-size: 25px;
+                        margin-left: 15px
+                    }
+                    & #btnSearch{
+                        height: 50px;
+                        margin-top: 12px;
+                        margin-left: 5px;
+                        margin-right: 10px;
+                        border-radius: 5%;
+                        float: left;
+                        font-size: 18px;
+                        cursor: pointer;
+    
+                    }
+
+
+                 }
+                 & #nameLogin{
+                    height: 50%;
+                    float: auto;
+                    text-align: center;
+                    margin-top: 5%;
+    
+                    & h1{
+                        font-size: 23px;
+                    }
+                 }
+               }
+               & .divInf{
+                    display: grid;
+                    grid-template-columns: 75% 25%;
+                    font-size: 15px;
+    
+                & .divInfLisOfSales{            
+                    display: grid;
+                    grid-template-rows: 72% 28%;
+    
+                    & .divListSales{
+                        height: 550px;
+                        padding-bottom: 50px;
+    
+                        & #md-dv-li{
+                            height: 45px;
+                            &  #md-ul-li{
+    
+                                & #md-li{
+                                    padding-top:10px;
+                                    padding-left: 15px;
+                                    text-transform: uppercase;
+                                    display: grid;
+                                    grid-template-columns: 80px 190px 90px 130px 130px 80px 80px;
+                                }
+                            }
+                        }
+                    }
+                    & .divSaleTot{
+                        display: grid;
+                        grid-template-columns: 25% 75%;
+                        & #tot{
+                            display:grid;
+                            grid-template-columns: 50% 50%;
+    
+                            & h1{
+                                width: 100%;
+                                height: 70px;
+                                margin-top: 85px;
+                                text-align: center;
+                                padding-top: 25px;
+                                font-size: 30px;
+                            }
+                            & #vTotal{
+                                margin-left: -5px;
+                            }
+                        }
+                        & #methodPayment{
+                            display: grid;
+                            grid-template-columns: 50% 40%;
+
+                            & #payment{
+                                display: grid;
+                                grid-template-rows: 50px 50px;
+                                padding-top: 70px;
+                                padding-left: 60px;
+                                padding-right: 60px;
+                                font-size: 18px;
+                                & h1{
+                                    font-size: 18px;
+                                }
+                                & select{
+                                    padding-left: 10px;
+                                    border-radius: 10px;
+                                }
+                            }
+                            & div#finish{
+                                display: flex;
+                                justify-content: center;
+                                align-items: first baseline;
+                                & button{
+                                    width: 230px;
+                                    height: 50px;
+                                    margin-top: 100px;
+                                    font-size: 25px;
+                                    cursor: pointer; 
+                                    border-radius: 10px;
+                                }
+
+                            }
+                        }
+                        
+                    }
+                        & #vTotal{
+                            display: grid;
+                            grid-template-columns: 50% 50%;
+                            & #infTotal{
+                                color: white;
+                                float: left;
+                                font-size: 30px;
+                                margin-top: 20%;
+                                padding-right: 0px;
+                                margin-right: 0px;
+                                margin-left: 10%;
+                            }
+                            & #vTot{
+                                color: white;
+                                float: left;
+                                font-size: 30px;
+                                margin-top: 18%;
+                                margin-left: 10px;
+                                padding-left: 0px;
+                            }
+                        }
+                    }
+                    
+                    & ol{
+                        height: 115%;
+                        overflow: scroll;
+                        margin-left: 0px;
+                        padding-left: 50px;
+                        margin-top: -1px;
+                        & li{
+                            font-size: 25px;
+                            & button{
+                                width: 35px;
+                                height: 35px;
+                                float: left;
+                                margin-top:-2px;
+                            }
+                        }
+                    }
+                }
+                & .divMenuAtendente{
+                    & .funAtendente{
+                        width: 80%;
+                        margin-left: 2%;
+                        height: 70px;
+                        font-size: 15px;
+                        color: #F5F5F5;
+                        cursor: pointer;
+                    }
+                    & .funAtendente:hover{
+                        width: 80%;
+                        margin-top: 2.5%;
+                     
+
+                    }
+                }
+    
+               }
+            }
+        }
+        .liProdutos{
+            color: #262525;
+        }
+
+}
